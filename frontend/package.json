@@ -1,0 +1,48 @@
+{
+  "name": "@medistock/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "biome check src"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "3.10.0",
+    "@supabase/supabase-js": "^2.49.8",
+    "@tanstack/react-query": "^5.77.2",
+    "@tanstack/react-table": "^8.21.3",
+    "@tailwindcss/vite": "^4.1.7",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.12.1",
+    "lucide-react": "^0.511.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.56.4",
+    "react-router": "8.3.0",
+    "recharts": "^2.15.3",
+    "sonner": "^2.0.3",
+    "tailwind-merge": "^3.3.0",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@biomejs/biome": "^2.3.11",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4"
+  }
+}

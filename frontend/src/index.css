@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-ink: #0f172a;
+  --color-deep: #0f172a;
+  --color-pine: #2563eb;
+  --color-mint: #bfdbfe;
+  --color-lime: #dbeafe;
+  --color-paper: #f8fafc;
+  --color-line: #e2e8f0;
+  --color-brand-navy: #071b4a;
+  --color-brand-orange: #f59e0b;
+}
+
+@layer base {
+  * { 
+    box-sizing: border-box; 
+    border-color: #e2e8f0;
+  }
+  html { 
+    background: #f8fafc; 
+    color: #0f172a; 
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  body { 
+    margin: 0; 
+    min-width: 320px; 
+    min-height: 100vh; 
+  }
+  button, input, select, textarea { 
+    font: inherit; 
+  }
+  button { 
+    cursor: pointer; 
+  }
+  :focus-visible { 
+    outline: 2px solid #3b82f6; 
+    outline-offset: 2px; 
+  }
+  ::selection { 
+    background: #bfdbfe; 
+    color: #071b4a; 
+  }
+
+  /* Sleek custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer components {
+  /* Enterprise SaaS Surfaces */
+  .card { 
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-[0_2px_10px_-2px_rgba(15,23,42,0.04),0_1px_3px_-1px_rgba(15,23,42,0.03)] transition-all; 
+  }
+  .card-hover {
+    @apply hover:border-slate-300 hover:shadow-[0_8px_24px_-4px_rgba(15,23,42,0.08),0_2px_6px_-1px_rgba(15,23,42,0.04)] hover:-translate-y-0.5 transition-all;
+  }
+  .glass-card {
+    @apply rounded-2xl border border-white/60 bg-white/80 backdrop-blur-xl shadow-[0_4px_20px_-2px_rgba(15,23,42,0.05)];
+  }
+  .glass-dark {
+    @apply rounded-2xl border border-white/10 bg-slate-900/85 backdrop-blur-xl shadow-2xl;
+  }
+
+  .label { 
+    @apply text-[11px] font-bold uppercase tracking-[.1em] text-slate-400; 
+  }
+
+  /* Enterprise Buttons */
+  .btn-primary { 
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-xs font-bold text-white shadow-sm shadow-blue-500/20 transition-all hover:from-blue-500 hover:to-indigo-500 hover:shadow-md hover:shadow-blue-500/30 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:active:scale-100; 
+  }
+  .btn-secondary { 
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-700 shadow-2xs transition-all hover:border-slate-300 hover:bg-slate-50 active:scale-[0.98]; 
+  }
+  .icon-button { 
+    @apply grid size-9 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 active:scale-95; 
+  }
+
+  /* Modern Form Controls */
+  .field { 
+    @apply h-11 w-full rounded-xl border border-slate-200 bg-white px-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all focus:border-blue-500 focus:outline-none focus:ring-3 focus:ring-blue-500/15; 
+  }
+  .field-label { 
+    @apply mb-1.5 block text-xs font-bold text-slate-700; 
+  }
+
+  /* Clean Data Tables */
+  .data-table { 
+    @apply w-full min-w-[760px] border-collapse; 
+  }
+  .data-table th { 
+    @apply border-b border-slate-200/80 bg-slate-50/70 px-5 py-3.5 text-left text-[11px] font-bold uppercase tracking-wider text-slate-400; 
+  }
+  .data-table td { 
+    @apply border-b border-slate-100 px-5 py-4 text-xs font-medium text-slate-700 transition-colors; 
+  }
+  .data-table tr:hover td {
+    @apply bg-slate-50/40;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
