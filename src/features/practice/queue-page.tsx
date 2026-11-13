@@ -52,29 +52,20 @@ export function QueuePage() {
 
   return (
     <div className="space-y-6">
-      {/* Top Banner with Handcrafted Queue Lounge Sketch */}
-      <div className="panel p-5 bg-gradient-to-r from-teal-50/60 via-sky-50/30 to-white border-teal-200/70 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      {/* Crisp Queue Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-100/70 border border-teal-200 text-teal-800 text-[11px] font-semibold mb-2">
-            <Volume2 className="w-3.5 h-3.5 text-teal-600" />
-            Live Clinic Audio Dispatcher
-          </div>
           <h1 className="text-xl font-bold tracking-tight text-slate-900">
-            OPD Live Calling Queue Board
+            OPD Calling Queue Board
           </h1>
-          <p className="text-xs text-slate-500 mt-1 max-w-lg">
-            Real-time waiting room dispatch display with speech synthesizer token announcement for clinic speaker systems.
+          <p className="text-xs text-slate-500 mt-0.5">
+            Real-time waiting room dispatch with speech synthesizer token announcement.
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="hidden sm:block">
-            <QueueWaitingSketch className="w-32 h-24" />
-          </div>
-          <button onClick={reloadTickets} className="btn-secondary text-xs">
-            <RotateCcw className="w-3.5 h-3.5" /> Refresh Board
-          </button>
-        </div>
+        <button onClick={reloadTickets} className="btn-secondary text-xs">
+          <RotateCcw className="w-3.5 h-3.5" /> Refresh Board
+        </button>
       </div>
 
       {/* Main 3-Column Queue Board */}
