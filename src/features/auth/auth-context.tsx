@@ -55,10 +55,10 @@ export const DEMO_IDENTITIES: Record<"DOCTOR" | "SUPERADMIN" | "RECEPTIONIST", I
       isPlatformAdmin: false,
     },
     selectedClinicId: "clinic-st-jude",
-    selectedRole: "CLINIC_OWNER",
+    selectedRole: "DOCTOR",
     permissions: DEMO_PERMISSIONS,
     clinics: [
-      { id: "clinic-st-jude", name: "St. Jude Family Health Clinic", code: "ST-JUDE", role: "CLINIC_OWNER" },
+      { id: "clinic-st-jude", name: "St. Jude Family Health Clinic", code: "ST-JUDE", role: "DOCTOR" },
       { id: "clinic-metro-polyclinic", name: "Metro Manila Polyclinic", code: "METRO-POLY", role: "DOCTOR" },
     ],
   },
@@ -179,8 +179,10 @@ export function AuthProvider({ children }: PropsWithChildren) {
 
       if (targetIdentity.user.isPlatformAdmin) {
         router.push("/superadmin");
-      } else {
+      } else if (role === "RECEPTIONIST" || targetIdentity.selectedRole === "RECEPTIONIST") {
         router.push("/reception");
+      } else {
+        router.push("/consultation");
       }
     },
     [router],

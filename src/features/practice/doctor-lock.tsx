@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Lock, KeyRound, ShieldAlert } from "lucide-react";
+import { Lock, KeyRound, ShieldCheck, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { MedicalVaultSketch } from "@/components/ui/medical-illustrations";
 
 export function DoctorLock({ children }: { children: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState(false);
@@ -16,12 +17,13 @@ export function DoctorLock({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const handleUnlock = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (pin === "1234") {
+  const handleUnlock = (e?: React.FormEvent, customPin?: string) => {
+    if (e) e.preventDefault();
+    const testPin = customPin || pin;
+    if (testPin === "1234") {
       sessionStorage.setItem("doctor_desk_unlocked", "true");
       setUnlocked(true);
-      toast.success("Doctor's Desk unlocked");
+      toast.success("Doctor's Desk unlocked. Welcome Dr. Rizal!");
     } else {
       setError(true);
       setPin("");
@@ -34,30 +36,37 @@ export function DoctorLock({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center p-4">
-      <div className="panel max-w-sm w-full p-6 text-center shadow-xs">
-        <div className="w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 flex items-center justify-center mx-auto mb-3">
-          <Lock className="w-5 h-5" />
+    <div className="min-h-[65vh] flex items-center justify-center p-4">
+      <div className="panel max-w-md w-full p-6 sm:p-8 text-center bg-white border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.05)] rounded-2xl">
+        {/* Medical Security Vault Handcrafted Sketch */}
+        <div className="flex justify-center mb-1">
+          <MedicalVaultSketch className="w-36 h-36" />
         </div>
 
-        <h2 className="text-base font-semibold text-zinc-900 tracking-tight">
-          Doctor Desk Access
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-teal-800 text-[11px] font-semibold mb-2">
+          <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+          Clinical Privacy Gatekeeper
+        </div>
+
+        <h2 className="text-lg font-bold text-slate-900 tracking-tight">
+          Attending Physician Desk
         </h2>
-        <p className="text-xs text-zinc-500 mt-1 mb-5">
-          Enter 4-digit PIN to access clinical records & prescriptions.
+        <p className="text-xs text-slate-500 mt-1 mb-5 max-w-xs mx-auto">
+          Confidential medical records, patient diagnoses, and electronic prescription pad.
         </p>
 
-        <form onSubmit={handleUnlock} className="space-y-4">
-          <div className="flex justify-center gap-2">
+        <form onSubmit={(e) => handleUnlock(e)} className="space-y-4">
+          {/* PIN Digits Display */}
+          <div className="flex justify-center gap-2.5">
             {[0, 1, 2, 3].map((index) => (
               <div
                 key={index}
-                className={`w-10 h-12 rounded border flex items-center justify-center text-lg font-bold transition-colors ${
+                className={`w-11 h-13 rounded-xl border flex items-center justify-center text-xl font-bold transition-all ${
                   error
-                    ? "border-rose-300 bg-rose-50 text-rose-700"
+                    ? "border-rose-300 bg-rose-50 text-rose-700 animate-shake"
                     : index < pin.length
-                    ? "border-zinc-900 bg-zinc-50 text-zinc-900"
-                    : "border-zinc-200 bg-white"
+                    ? "border-teal-600 bg-teal-50/50 text-teal-900 shadow-2xs"
+                    : "border-slate-200 bg-slate-50/50 text-slate-300"
                 }`}
               >
                 {index < pin.length ? "•" : ""}
@@ -65,16 +74,23 @@ export function DoctorLock({ children }: { children: React.ReactNode }) {
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-1.5 max-w-[200px] mx-auto mt-4">
+          {/* Quick Keypad */}
+          <div className="grid grid-cols-3 gap-2 max-w-[220px] mx-auto mt-4">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((digit) => (
               <button
                 key={digit}
                 type="button"
                 onClick={() => {
                   setError(false);
-                  if (pin.length < 4) setPin((p) => p + digit);
+                  if (pin.length < 4) {
+                    const next = pin + digit;
+                    setPin(next);
+                    if (next.length === 4) {
+                      setTimeout(() => handleUnlock(undefined, next), 50);
+                    }
+                  }
                 }}
-                className="h-10 rounded border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900 font-semibold text-sm transition-colors cursor-pointer"
+                className="h-11 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-300 text-slate-800 font-semibold text-sm transition-all cursor-pointer shadow-2xs"
               >
                 {digit}
               </button>
@@ -84,9 +100,15 @@ export function DoctorLock({ children }: { children: React.ReactNode }) {
                 type="button"
                 onClick={() => {
                   setError(false);
-                  if (pin.length < 4) setPin((p) => p + "0");
+                  if (pin.length < 4) {
+                    const next = pin + "0";
+                    setPin(next);
+                    if (next.length === 4) {
+                      setTimeout(() => handleUnlock(undefined, next), 50);
+                    }
+                  }
                 }}
-                className="w-full h-10 rounded border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-900 font-semibold text-sm transition-colors cursor-pointer"
+                className="w-full h-11 rounded-xl border border-slate-200 bg-white hover:bg-teal-50/50 hover:border-teal-300 text-slate-800 font-semibold text-sm transition-all cursor-pointer shadow-2xs"
               >
                 0
               </button>
@@ -98,24 +120,25 @@ export function DoctorLock({ children }: { children: React.ReactNode }) {
                   setError(false);
                   setPin((p) => p.slice(0, -1));
                 }}
-                className="w-full h-10 rounded border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 text-zinc-600 text-xs font-semibold transition-colors cursor-pointer"
+                className="w-full h-11 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600 font-medium text-xs transition-colors cursor-pointer"
               >
-                DEL
+                ⌫
               </button>
             </div>
           </div>
 
-          <button
-            type="submit"
-            disabled={pin.length < 4}
-            className="btn-primary w-full justify-center mt-3 disabled:opacity-40"
-          >
-            <KeyRound className="w-3.5 h-3.5" /> Unlock Desk
-          </button>
-
-          <p className="text-[11px] font-mono text-zinc-400">
-            Demo PIN: <strong className="text-zinc-600">1234</strong>
-          </p>
+          {/* 1-Click Instant Unlock for frictionless access */}
+          <div className="pt-4 border-t border-slate-100">
+            <button
+              type="button"
+              onClick={() => handleUnlock(undefined, "1234")}
+              className="w-full py-2.5 px-4 rounded-xl bg-teal-50 hover:bg-teal-100/80 border border-teal-200/80 text-teal-800 text-xs font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
+            >
+              <KeyRound className="w-3.5 h-3.5 text-teal-600" />
+              <span>1-Click Unlock with Demo PIN (<strong>1234</strong>)</span>
+              <ArrowRight className="w-3 h-3 text-teal-600" />
+            </button>
+          </div>
         </form>
       </div>
     </div>

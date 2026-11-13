@@ -16,6 +16,7 @@ import {
   Receipt,
   ShieldCheck,
   Stethoscope,
+  UserCheck,
   Users,
 } from "lucide-react";
 import { getClinicSubscription } from "@/features/subscription/saas-subscription-store";
@@ -30,65 +31,93 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     setSub(getClinicSubscription());
   }, [identity?.selectedClinicId]);
 
-  const navItems = [
-    { href: "/reception", label: "Reception", icon: Users },
+  const role = identity?.selectedRole ?? "DOCTOR";
+  const isDoctor = role === "DOCTOR" || role === "CLINIC_OWNER";
+  const isReception = role === "RECEPTIONIST";
+
+  // Dedicated role-based navigation tabs
+  const doctorNav = [
     { href: "/consultation", label: "Doctor Desk", icon: Stethoscope },
-    { href: "/queue", label: "OPD Queue", icon: Clock },
-    { href: "/pos", label: "Billing & POS", icon: Receipt },
-    { href: "/inventory", label: "Pharmacy & Stock", icon: Pill },
-    { href: "/patients", label: "Patients", icon: FileText },
-    { href: "/analytics", label: "Analytics", icon: LayoutDashboard },
-    { href: "/reminders", label: "Follow-ups", icon: CalendarDays },
+    { href: "/queue", label: "My Patient Queue", icon: Clock },
+    { href: "/patients", label: "Patient Records (EMR)", icon: FileText },
+    { href: "/reminders", label: "Follow-up Recalls", icon: CalendarDays },
+    { href: "/inventory", label: "Formulary & Drugs", icon: Pill },
+    { href: "/analytics", label: "Clinic KPIs", icon: LayoutDashboard },
     { href: "/subscription", label: "Plan & Invoices", icon: CreditCard },
   ];
+
+  const receptionNav = [
+    { href: "/reception", label: "Patient Check-in", icon: Users },
+    { href: "/queue", label: "Calling Queue Board", icon: Clock },
+    { href: "/pos", label: "Billing & Cashier", icon: Receipt },
+    { href: "/patients", label: "Patient Directory", icon: FileText },
+    { href: "/inventory", label: "Stock Quick-Lookup", icon: Pill },
+  ];
+
+  const superAdminNav = [
+    { href: "/superadmin", label: "Platform Overview", icon: ShieldCheck },
+    { href: "/consultation", label: "Preview Doctor Desk", icon: Stethoscope },
+    { href: "/reception", label: "Preview Reception", icon: Users },
+    { href: "/subscription", label: "Tenant SaaS Subscriptions", icon: CreditCard },
+  ];
+
+  const currentNav = isReception ? receptionNav : isDoctor ? doctorNav : superAdminNav;
 
   const selectedClinic =
     identity?.clinics.find((c) => c.id === identity.selectedClinicId) ||
     identity?.clinics[0];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fbfbfb]">
-      {/* Top Header */}
-      <header className="sticky top-0 z-40 bg-white border-b border-zinc-200 h-14 px-4 flex items-center justify-between">
+    <div className="min-h-screen flex flex-col bg-[#f8fafc]">
+      {/* Top Header - Soft Clinical Glass Bar */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 h-14 px-4 sm:px-6 flex items-center justify-between">
         {/* Brand & Clinic Switcher */}
-        <div className="flex items-center gap-4">
-          <Link href="/reception" className="flex items-center gap-2">
-            <span className="w-7 h-7 rounded-md bg-zinc-900 text-white flex items-center justify-center font-bold text-sm">
-              <Activity className="w-4 h-4" />
-            </span>
-            <span className="font-semibold text-sm tracking-tight text-zinc-950">
-              MediStock
-            </span>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <Link
+            href={isDoctor ? "/consultation" : "/reception"}
+            className="flex items-center gap-2 group cursor-pointer"
+          >
+            <div className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200/80 text-teal-700 flex items-center justify-center font-bold text-sm shadow-2xs group-hover:bg-teal-100/70 transition-colors">
+              <Activity className="w-4 h-4 text-teal-600" />
+            </div>
+            <div>
+              <span className="font-bold text-sm tracking-tight text-slate-900 block leading-tight">
+                MediStock
+              </span>
+              <span className="text-[10px] font-medium text-teal-700 block leading-none">
+                Clinical OS
+              </span>
+            </div>
           </Link>
 
-          <span className="text-zinc-300">/</span>
+          <span className="text-slate-300">/</span>
 
           {/* Clinic Switcher */}
           <div className="relative group">
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-zinc-200 bg-zinc-50 text-xs font-medium text-zinc-800 hover:bg-zinc-100 cursor-pointer">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span className="truncate max-w-[140px] sm:max-w-[200px]">
-                {selectedClinic?.name ?? "My Clinic"}
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg border border-slate-200 bg-slate-50/80 text-xs font-medium text-slate-700 hover:bg-slate-100 hover:border-slate-300 cursor-pointer transition-all">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="truncate max-w-[130px] sm:max-w-[180px]">
+                {selectedClinic?.name ?? "St. Jude Family Health"}
               </span>
-              <ChevronDown className="w-3.5 h-3.5 text-zinc-400" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
             </div>
 
-            <div className="hidden group-hover:block absolute left-0 top-full mt-1 w-56 bg-white border border-zinc-200 rounded-md shadow-lg py-1 z-50">
-              <div className="px-3 py-1.5 text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
+            <div className="hidden group-hover:block absolute left-0 top-full mt-1 w-60 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-50">
+              <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 uppercase tracking-wider">
                 Select Clinic Branch
               </div>
               {identity?.clinics.map((c) => (
                 <button
                   key={c.id}
                   onClick={() => selectClinic(c.id)}
-                  className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-zinc-50 cursor-pointer ${
-                    c.id === identity.selectedClinicId
-                      ? "font-semibold text-zinc-900 bg-zinc-50"
-                      : "text-zinc-600"
+                  className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between hover:bg-slate-50 cursor-pointer ${
+                    c.id === identity?.selectedClinicId
+                      ? "font-semibold text-teal-900 bg-teal-50/60"
+                      : "text-slate-600"
                   }`}
                 >
                   <span className="truncate">{c.name}</span>
-                  <span className="text-[10px] font-mono text-zinc-400">
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-500">
                     {c.code}
                   </span>
                 </button>
@@ -100,15 +129,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {sub && (
             <Link
               href="/subscription"
-              className="hidden md:inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-100 text-zinc-700 border border-zinc-200 hover:bg-zinc-200 transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200/80 hover:bg-emerald-100/70 transition-colors"
             >
-              <span className="text-zinc-500 font-normal">Plan:</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               <span className="font-semibold uppercase tracking-tight">
                 {sub.planId}
               </span>
               {sub.status === "TRIAL" && (
-                <span className="text-[10px] text-amber-700 font-bold bg-amber-50 px-1 rounded border border-amber-200">
-                  Trial
+                <span className="text-[10px] text-amber-800 font-bold bg-amber-100/80 px-1.5 py-0.2 rounded-full border border-amber-200">
+                  14d Trial
                 </span>
               )}
             </Link>
@@ -116,48 +145,64 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Right Tools & Role Quick Switcher */}
-        <div className="flex items-center gap-2">
-          {/* 1-Click Role Switcher for instant testing */}
-          <div className="hidden lg:flex items-center gap-1 border border-zinc-200 rounded-md p-0.5 bg-zinc-50 text-[11px]">
-            <span className="px-2 text-zinc-400 font-medium">Test as:</span>
+        <div className="flex items-center gap-3">
+          {/* Active Workspace / Role Switcher */}
+          <div className="flex items-center gap-1 border border-slate-200/90 rounded-lg p-0.5 bg-slate-50 text-[11px]">
+            <span className="px-2 text-slate-400 font-medium hidden sm:inline">
+              Workspace:
+            </span>
             <button
               onClick={() => signInDemo("DOCTOR")}
-              className={`px-2 py-0.5 rounded cursor-pointer transition-colors ${
-                identity?.selectedRole === "CLINIC_OWNER"
-                  ? "bg-white font-semibold text-zinc-900 shadow-2xs border border-zinc-200"
-                  : "text-zinc-500 hover:text-zinc-900"
+              title="Switch to Doctor Consultation Desk"
+              className={`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 ${
+                isDoctor
+                  ? "bg-teal-600 font-semibold text-white shadow-xs"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/60"
               }`}
             >
-              Doctor
+              <Stethoscope className="w-3.5 h-3.5" />
+              <span>Doctor</span>
             </button>
             <button
               onClick={() => signInDemo("RECEPTIONIST")}
-              className={`px-2 py-0.5 rounded cursor-pointer transition-colors ${
-                identity?.selectedRole === "RECEPTIONIST"
-                  ? "bg-white font-semibold text-zinc-900 shadow-2xs border border-zinc-200"
-                  : "text-zinc-500 hover:text-zinc-900"
+              title="Switch to Front Desk / Reception Check-in"
+              className={`px-2.5 py-1 rounded-md cursor-pointer transition-all flex items-center gap-1.5 ${
+                isReception
+                  ? "bg-sky-600 font-semibold text-white shadow-xs"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/60"
               }`}
             >
-              Reception
+              <Users className="w-3.5 h-3.5" />
+              <span>Reception</span>
             </button>
             <button
               onClick={() => signInDemo("SUPERADMIN")}
-              className="px-2 py-0.5 rounded text-zinc-500 hover:text-zinc-900 cursor-pointer transition-colors flex items-center gap-1"
+              title="Platform Admin"
+              className={`px-2 py-1 rounded-md cursor-pointer transition-all hidden md:flex items-center gap-1 ${
+                identity?.user.isPlatformAdmin
+                  ? "bg-slate-900 font-semibold text-white shadow-xs"
+                  : "text-slate-500 hover:text-slate-900"
+              }`}
             >
-              <ShieldCheck className="w-3 h-3 text-zinc-400" />
-              Admin
+              <ShieldCheck className="w-3 h-3" />
+              <span>Admin</span>
             </button>
           </div>
 
-          {/* User Email & Sign Out */}
-          <div className="flex items-center gap-2 pl-2 border-l border-zinc-200">
-            <span className="text-xs text-zinc-600 hidden sm:inline">
-              {identity?.user.fullName}
-            </span>
+          {/* User Full Name & Sign Out */}
+          <div className="flex items-center gap-2 pl-2 border-l border-slate-200">
+            <div className="hidden sm:block text-right">
+              <span className="text-xs font-semibold text-slate-800 block leading-tight">
+                {identity?.user.fullName}
+              </span>
+              <span className="text-[10px] text-slate-500 font-medium block">
+                {isDoctor ? "Attending Physician" : isReception ? "Front Desk Officer" : "Super Admin"}
+              </span>
+            </div>
             <button
               onClick={signOut}
               title="Sign out"
-              className="p-1.5 text-zinc-400 hover:text-zinc-800 rounded-md hover:bg-zinc-100 cursor-pointer"
+              className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 cursor-pointer transition-colors"
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -165,27 +210,50 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Navigation Sub-Bar (Clean Linear style tabs) */}
-      <nav className="bg-white border-b border-zinc-200 px-4 flex items-center gap-1 overflow-x-auto scrollbar-none">
-        {navItems.map((item) => {
+      {/* Navigation Sub-Bar (Light soothing pastel tab styling) */}
+      <nav className="bg-white border-b border-slate-200/80 px-4 sm:px-6 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+        {currentNav.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-2 px-3 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-colors ${
+              className={`flex items-center gap-2 px-3.5 py-2.5 text-xs font-medium border-b-2 whitespace-nowrap transition-all ${
                 isActive
-                  ? "border-zinc-900 text-zinc-900 font-semibold"
-                  : "border-transparent text-zinc-500 hover:text-zinc-800 hover:border-zinc-300"
+                  ? "border-teal-600 text-teal-800 font-semibold bg-teal-50/40"
+                  : "border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-50 hover:border-slate-300"
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon
+                className={`w-3.5 h-3.5 ${
+                  isActive ? "text-teal-600" : "text-slate-400"
+                }`}
+              />
               {item.label}
             </Link>
           );
         })}
       </nav>
+
+      {/* Soft Role Warning Pill (if Doctor visits Reception URL directly) */}
+      {isDoctor && pathname === "/reception" && (
+        <div className="bg-teal-50/80 border-b border-teal-200/70 px-4 py-2 flex items-center justify-between text-xs text-teal-900">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-teal-500"></span>
+            <span>
+              You are currently viewing the <strong>Front Desk Check-in</strong>.
+              Doctor records & consultation tools are on the Doctor Desk.
+            </span>
+          </div>
+          <Link
+            href="/consultation"
+            className="font-semibold underline hover:text-teal-950 flex items-center gap-1"
+          >
+            Go to Doctor Desk →
+          </Link>
+        </div>
+      )}
 
       {/* Main Content Area */}
       <main className="flex-1 p-4 sm:p-6 max-w-7xl w-full mx-auto">
