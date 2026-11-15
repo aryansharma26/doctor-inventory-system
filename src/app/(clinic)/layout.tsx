@@ -1,9 +1,18 @@
-import { AppShell } from "@/components/layout/app-shell";
+import { ProtectedWorkspace } from "@/features/hospital/protected-workspace";
+import { Suspense } from "react";
 
 export default function ClinicLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <AppShell>{children}</AppShell>;
+  return (
+    <Suspense
+      fallback={
+        <div className="workspace-loading">Loading hospital workspace…</div>
+      }
+    >
+      <ProtectedWorkspace>{children}</ProtectedWorkspace>
+    </Suspense>
+  );
 }

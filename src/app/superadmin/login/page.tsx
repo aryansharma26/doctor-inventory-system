@@ -1,5 +1,4 @@
-import { SuperAdminLoginPage } from "@/features/auth/superadmin-login-page";
-
+import { redirect } from "next/navigation";
 export default function Page() {
-  return <SuperAdminLoginPage />;
+  redirect("/login");
 }

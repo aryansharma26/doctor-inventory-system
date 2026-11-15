@@ -1,5 +1,2 @@
-import { LoginPage } from "@/features/auth/login-page";
-
-export default function Page() {
-  return <LoginPage />;
-}
+import { StaffLogin } from "@/features/hospital/login";
+export default function Page() { return <StaffLogin />; }

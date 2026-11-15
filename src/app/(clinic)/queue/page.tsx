@@ -1,5 +1,2 @@
-import { QueuePage } from "@/features/practice/queue-page";
-
-export default function Page() {
-  return <QueuePage />;
-}
+import { QueueDisplay } from "@/features/hospital/queue";
+export default function Page() { return <QueueDisplay />; }

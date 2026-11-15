@@ -1,5 +1,2 @@
-import { InventoryPage } from "@/features/operations/inventory-page";
-
-export default function Page() {
-  return <InventoryPage />;
-}
+import { Inventory } from "@/features/hospital/inventory";
+export default function Page() { return <Inventory />; }

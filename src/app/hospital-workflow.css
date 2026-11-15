@@ -1,0 +1,1280 @@
+/* Readable staff interfaces: stronger text, larger controls and less decoration. */
+:root {
+  --muted: #526b80;
+  --line: #d8e1ea;
+  --ink: #102f4c;
+}
+.staff-hospital {
+  padding: 5px 12px 24px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+}
+.staff-hospital strong {
+  display: block;
+  font-size: 15px;
+}
+.staff-hospital > span {
+  display: block;
+  color: #526b80;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.staff-workspace .nav-item {
+  font-size: 13px;
+  min-height: 44px;
+  gap: 11px;
+  color: #496177;
+}
+.staff-workspace .nav-active {
+  color: #123b64;
+  background: #e6eef7;
+  font-weight: 650;
+}
+.staff-sidebar-bottom {
+  margin-top: auto;
+  padding: 25px 10px;
+  display: grid;
+  gap: 10px;
+}
+.sample-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #657b8c;
+}
+.workspace-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.staff-workspace .staff-profile strong {
+  font-size: 12px;
+}
+.staff-workspace .profile-subtitle {
+  display: block;
+  font-size: 11px;
+  color: #576e83;
+}
+.staff-workspace .staff-avatar {
+  width: 35px;
+  height: 35px;
+  font-size: 11px;
+}
+.header-messages {
+  position: relative;
+  color: #42647f;
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+}
+.header-messages > span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #174773;
+  border: 2px solid white;
+  color: white;
+  font-size: 10px;
+  border-radius: 12px;
+  padding: 0 5px;
+}
+.audio-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: #48667e;
+  background: #f5f8fb;
+  border: 1px solid #d8e3ed;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+.audio-on {
+  background: #edf6ee;
+  color: #356244;
+  border-color: #c5d9c8;
+}
+.staff-workspace .workspace-content {
+  padding: 28px 30px;
+}
+.staff-workspace .page-heading {
+  margin-bottom: 24px;
+}
+.staff-workspace .page-heading h1 {
+  font-size: 29px;
+  letter-spacing: -0.8px;
+  margin: 0 0 9px;
+  font-weight: 650;
+}
+.staff-workspace .page-heading .eyebrow {
+  display: none;
+}
+.staff-workspace .page-heading p {
+  font-size: 13px;
+  color: #536c81;
+  line-height: 1.65;
+}
+.staff-workspace .heading-actions {
+  padding-top: 0;
+  max-width: 100%;
+  min-width: 0;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+}
+.staff-workspace .button,
+.public-site .button {
+  font-size: 13px;
+  min-height: 41px;
+}
+.staff-workspace .button.small {
+  font-size: 11px;
+  min-height: 33px;
+}
+.staff-workspace .icon-button {
+  color: #4c6880;
+  width: 35px;
+  height: 35px;
+}
+.staff-workspace .data-table th {
+  font-size: 11px;
+  color: #4d667e;
+  font-weight: 600;
+  padding: 13px 17px;
+}
+.staff-workspace .data-table td {
+  font-size: 13px;
+  padding: 15px 17px;
+  color: #3c5972;
+}
+.staff-workspace .cell-title,
+.staff-workspace .token-label,
+.staff-workspace .table-person strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: #183e5d;
+}
+.staff-workspace .cell-sub,
+.staff-workspace .table-person div > span {
+  font-size: 11px;
+  color: #596f82;
+  line-height: 1.65;
+}
+.staff-workspace .status,
+.public-site .status {
+  font-size: 11px;
+  padding: 5px 8px;
+  font-weight: 550;
+}
+.status-waiting {
+  color: #876019;
+  background: #fff5df;
+}
+.status-consulting {
+  color: #2f6392;
+  background: #eaf1fb;
+}
+.status-booked {
+  color: #4f668b;
+  background: #edf1fa;
+}
+.status-completed {
+  color: #346e49;
+  background: #eaf5ed;
+}
+.status-cancelled {
+  color: #9d4e48;
+  background: #fbefec;
+}
+.status-called {
+  color: #285c9b;
+  background: #e7f0ff;
+}
+.status-skipped {
+  color: #815a92;
+  background: #f3eaf9;
+}
+.staff-workspace .field,
+.public-site .field {
+  font-size: 12px;
+  font-weight: 600;
+  color: #294b66;
+}
+.staff-workspace .field input,
+.staff-workspace .field textarea,
+.staff-workspace .field select,
+.public-site .field input,
+.public-site .field textarea,
+.public-site .field select {
+  font-size: 13px;
+  min-height: 41px;
+  color: #163e5a;
+  border-color: #cbd8e3;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #6d8193;
+}
+.field small,
+.form-note {
+  font-size: 11px;
+  color: #5c7385;
+  line-height: 1.7;
+}
+.staff-workspace .table-tabs button {
+  font-size: 12px;
+  color: #60778a;
+}
+.staff-workspace .table-tabs .tab-active {
+  color: #173f65;
+}
+.staff-workspace .table-tabs {
+  gap: 20px;
+}
+.staff-workspace .live-indicator {
+  font-size: 11px;
+  color: #526f63;
+}
+.staff-workspace .search-field input {
+  font-size: 13px;
+}
+.staff-workspace .search-field input::placeholder {
+  color: #677e91;
+}
+.staff-workspace .section-title h2 {
+  font-size: 19px;
+}
+.staff-workspace .section-title p {
+  font-size: 11px;
+  color: #597285;
+}
+.staff-workspace .summary-strip span:last-child {
+  font-size: 12px;
+  color: #546e82;
+}
+.staff-workspace .summary-strip strong {
+  font-size: 26px;
+}
+.staff-workspace .table-footer {
+  color: #596f82;
+  font-size: 11px;
+}
+.staff-workspace .doctor-state {
+  font-size: 10px;
+  color: #416e50;
+}
+.staff-workspace .queue-patient-top strong {
+  font-size: 14px;
+}
+.staff-workspace .queue-patient-top div > span,
+.staff-workspace .queue-patient > p {
+  font-size: 12px;
+  color: #577387;
+}
+.staff-workspace .queue-patient > div:last-child > span:first-child {
+  font-size: 11px;
+  color: #416480;
+}
+.staff-workspace .record-tabs button {
+  font-size: 13px;
+}
+.staff-workspace .patient-record-header p,
+.staff-workspace .patient-record-meta {
+  font-size: 12px;
+  color: #557083;
+}
+.staff-workspace .patient-vitals span {
+  font-size: 10px;
+  color: #547082;
+}
+.staff-workspace .patient-vitals strong {
+  font-size: 20px;
+}
+.staff-workspace .patient-vitals small {
+  font-size: 10px;
+  color: #5d7689;
+}
+.staff-workspace .complaint-box span,
+.staff-workspace .record-section-label {
+  font-size: 10px;
+  color: #4d6e86;
+}
+.staff-workspace .complaint-box p {
+  font-size: 14px;
+  color: #274b65;
+}
+.staff-workspace .prescription-line strong {
+  font-size: 14px;
+}
+.staff-workspace .prescription-line p,
+.staff-workspace .prescription-line small {
+  font-size: 12px;
+  color: #516f84;
+}
+.staff-workspace .allergy-alert {
+  font-size: 12px;
+  color: #825b2e;
+}
+.staff-workspace .allergy-none {
+  font-size: 12px;
+  color: #537160;
+}
+.staff-workspace .empty-state p {
+  font-size: 12px;
+  color: #566f83;
+}
+.staff-workspace .empty-state h3 {
+  font-size: 20px;
+}
+.staff-workspace .filter-toolbar > select,
+.staff-workspace .doctor-picker select {
+  font-size: 12px;
+  min-height: 38px;
+  color: #365a76;
+}
+.staff-workspace .person-avatar {
+  font-size: 11px;
+}
+.staff-workspace .history-item p {
+  font-size: 12px;
+  color: #536d81;
+}
+.staff-workspace .care-banner p,
+.staff-workspace .metric-card > p,
+.staff-workspace .section-title p {
+  color: #536f83;
+}
+.staff-workspace .metric-top {
+  font-size: 12px;
+  color: #4f6c82;
+}
+.staff-workspace .metric-card > p {
+  font-size: 11px;
+}
+.staff-workspace .metric-card > strong {
+  font-size: 33px;
+}
+.staff-workspace .bar-group label,
+.staff-workspace .chart-y-axis {
+  font-size: 10px;
+  color: #536d83;
+}
+.password-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccd9e4;
+  border-radius: 8px;
+  min-height: 44px;
+  overflow: hidden;
+}
+.password-input input {
+  border: 0;
+  outline: 0;
+  padding: 11px 12px;
+  width: 100%;
+  font-size: 14px;
+}
+.password-input button {
+  margin-right: 5px;
+}
+.staff-login-form .field {
+  font-size: 13px;
+}
+.staff-login-form .field input {
+  font-size: 14px;
+  min-height: 45px;
+}
+.staff-login-form > p {
+  color: #587185;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.staff-login-form h2 {
+  font-size: 32px;
+}
+.staff-login-form .button {
+  font-size: 14px;
+  min-height: 46px;
+}
+.local-accounts {
+  background: #f4f7fb;
+  border: 1px solid #dae4ee;
+  border-radius: 9px;
+  padding: 13px;
+  font-size: 11px;
+  color: #4b687f;
+}
+.local-accounts summary {
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.local-accounts table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+.local-accounts td {
+  padding: 5px 3px;
+}
+.local-accounts p {
+  font-size: 10px;
+  margin-top: 9px;
+}
+.local-accounts {
+  overflow-x: auto;
+}
+.message-compose {
+  display: grid;
+  gap: 18px;
+}
+.message-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.message-presets button {
+  padding: 7px 9px;
+  border: 1px solid #d6e1eb;
+  border-radius: 7px;
+  background: #f6f9fc;
+  color: #3d607c;
+  font-size: 11px;
+}
+.team-message-list {
+  padding: 22px;
+  display: grid;
+  gap: 15px;
+}
+.team-message {
+  padding: 20px;
+  border: 1px solid #d8e3ed;
+  border-radius: 10px;
+  background: white;
+}
+.message-unread {
+  border-left: 4px solid #346b9c;
+  background: #f5f9fe;
+}
+.message-outgoing {
+  background: #fafbfd;
+}
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #5a7387;
+}
+.message-meta strong {
+  color: #274d6b;
+  font-size: 13px;
+}
+.message-meta time {
+  margin-left: auto;
+  font-size: 11px;
+}
+.team-message > p {
+  margin: 14px 0;
+  font-size: 15px;
+  color: #24485f;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+.message-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.message-receipt {
+  color: #53735e;
+  font-size: 11px;
+}
+.announcement-badge {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  color: #80622b;
+  background: #fbf2dd;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  margin-top: 12px;
+}
+.message-token {
+  display: inline-block;
+  color: #426784;
+  background: #eaf1f8;
+  font-size: 11px;
+  padding: 4px 7px;
+  border-radius: 5px;
+  margin: 10px 7px 0;
+}
+.queue-doctor-status {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.queue-doctor-status > .surface {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+}
+.queue-doctor-status strong {
+  font-size: 13px;
+  display: block;
+}
+.queue-doctor-status div > span {
+  font-size: 11px;
+  color: #597487;
+  display: block;
+  margin-top: 5px;
+}
+.queue-doctor-status .button {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.queue-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+.queue-column-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.queue-column-heading h2 {
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+}
+.queue-column-heading > span {
+  font-size: 12px;
+  color: #446985;
+  background: #edf3f9;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+.queue-column-body {
+  display: grid;
+  gap: 13px;
+  padding: 15px;
+}
+.queue-card {
+  border: 1px solid #dae4ed;
+  border-radius: 9px;
+  padding: 15px;
+  background: white;
+  min-width: 0;
+}
+.queue-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+.queue-card-head > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.queue-card-head strong {
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+.queue-card-head > span {
+  font-size: 11px;
+  color: #58768b;
+}
+.queue-card > p {
+  font-size: 12px;
+  color: #4e6c82;
+  margin-top: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.queue-card-time {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 10px;
+  color: #59778c;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.queue-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.queue-board > .surface > .queue-view-tabs {
+  padding: 16px 13px;
+  border-bottom: 1px solid var(--line);
+}
+.queue-board .queue-view-tabs button {
+  font-size: 12px;
+}
+.lobby-announcement {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 25px;
+  background: #edf3f9;
+  border: 1px solid #d5e3ef;
+  border-radius: 12px;
+  margin-top: 25px;
+}
+.lobby-announcement p {
+  font-size: 21px;
+  flex: 1;
+  color: #234d6f;
+}
+.lobby-announcement .button {
+  flex-shrink: 0;
+}
+.pharmacy-page-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 20px;
+}
+.pharmacy-page-tabs button {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 13px;
+  border: 1px solid #d1dfeb;
+  padding: 11px 17px;
+  background: white;
+  border-radius: 9px;
+  color: #52718a;
+}
+.pharmacy-page-tabs .selected {
+  background: #173f65;
+  color: white;
+  border-color: #173f65;
+}
+.counter-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.prescription-inbox .section-title {
+  padding: 19px 16px;
+}
+.prescription-inbox .section-title h2 {
+  font-size: 17px;
+}
+.prescription-inbox .pharmacy-rx-card {
+  padding: 17px 15px;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+.prescription-inbox .pharmacy-rx-card > p {
+  font-size: 11px;
+  color: #587387;
+  margin-top: 8px;
+}
+.prescription-inbox .pharmacy-rx-card > .button {
+  margin-top: 12px;
+  width: 100%;
+}
+.selected-prescription {
+  background: #edf4fb;
+}
+.counter-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.counter-header h2 {
+  font-size: 20px;
+}
+.counter-customer {
+  padding: 20px;
+}
+.medicine-search {
+  padding: 0 20px 20px;
+  position: relative;
+}
+.medicine-search > form {
+  border: 1px solid #c9d9e6;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: #587991;
+}
+.medicine-search input {
+  border: 0;
+  outline: 0;
+  flex: 1;
+  width: 100%;
+  font-size: 13px;
+}
+.medicine-results {
+  position: absolute;
+  top: 53px;
+  left: 20px;
+  right: 20px;
+  border: 1px solid #cbdde9;
+  background: #fff;
+  box-shadow: 0 10px 25px #1638541c;
+  border-radius: 8px;
+  z-index: 10;
+  max-height: 330px;
+  overflow: auto;
+}
+.medicine-results button {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-bottom: 1px solid #e5edf4;
+  background: white;
+  text-align: left;
+  font-size: 12px;
+}
+.medicine-results button:hover {
+  background: #edf4fb;
+}
+.medicine-results button > div {
+  flex: 1;
+}
+.medicine-results span {
+  font-size: 10px;
+  color: #5b778d;
+  display: block;
+  margin-top: 4px;
+}
+.counter-cart input {
+  max-width: 66px;
+  min-height: 33px;
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccdbe7;
+  border-radius: 6px;
+  background: white;
+  font-size: 12px;
+}
+.counter-cart td:first-child {
+  white-space: normal;
+  min-width: 160px;
+}
+.counter-cart td:first-child strong {
+  font-size: 12px;
+  display: block;
+}
+.counter-cart input:disabled {
+  background: #f2f6f9;
+  color: #667e92;
+}
+.counter-checkout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(230px, 1fr);
+  gap: 30px;
+  padding: 23px;
+  border-top: 1px solid var(--line);
+  background: #fbfcfe;
+}
+.counter-payment {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.bill-totals {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+.bill-totals > div,
+.invoice-print-totals > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  font-size: 12px;
+  color: #526f85;
+}
+.bill-totals strong {
+  font-weight: 600;
+  color: #254f70;
+}
+.bill-totals .grand-total {
+  border-top: 1px solid #cbdbe8;
+  padding-top: 15px;
+  margin-top: 3px;
+  font-size: 18px;
+}
+.grand-total > strong {
+  font-size: 25px;
+  letter-spacing: -0.8px;
+}
+.bill-totals > .button {
+  margin-top: 6px;
+  width: 100%;
+}
+.invoice-print-totals {
+  display: grid;
+  gap: 12px;
+  max-width: 370px;
+  margin: 30px 0 0 auto;
+}
+.invoice-print-totals .grand-total {
+  border-top: 1px solid #c9d8e4;
+  border-bottom: 1px solid #c9d8e4;
+  padding: 15px 0;
+  margin: 8px 0;
+  font-size: 15px;
+}
+.invoice-print-table td p {
+  font-size: 10px;
+  color: #577084;
+  margin-top: 4px;
+}
+.invoice-print-table td:first-child {
+  white-space: normal;
+}
+.invoice-print-totals > p {
+  font-size: 11px;
+  color: #546e83;
+}
+.public-site .booking-intro > p,
+.public-site .booking-step p,
+.public-site .doctor-option > div > span,
+.public-site .booking-consent,
+.public-site .booking-privacy {
+  color: #4c6b83;
+}
+.public-site .doctor-option strong {
+  font-size: 13px;
+  color: #234d6d;
+}
+.public-site .doctor-option > div > span {
+  font-size: 11px;
+}
+.public-site .booking-slots > label {
+  font-size: 12px;
+  color: #426580;
+  padding: 11px 5px;
+  border-color: #ccdce9;
+}
+.public-site .booking-slots .slot-selected {
+  color: white;
+}
+.public-site .booking-step p {
+  font-size: 12px;
+}
+.public-site .booking-submit > div > span,
+.public-site .booking-submit strong small {
+  font-size: 10px;
+  color: #4f6f88;
+}
+.public-site .booking-consent {
+  font-size: 12px;
+}
+.public-site .booking-privacy {
+  font-size: 10px;
+}
+.public-site .booking-layout {
+  gap: 45px;
+  padding-top: 45px;
+}
+.public-header {
+  gap: 16px;
+}
+.public-header > .text-link {
+  font-size: 12px;
+}
+.manage-booking {
+  max-width: 760px;
+  margin: auto;
+  padding: 50px 25px 80px;
+}
+.manage-booking > h1 {
+  font-size: 37px;
+  margin: 14px 0;
+}
+.manage-booking > p {
+  color: #536f84;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.booking-lookup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 25px;
+  margin-top: 28px;
+}
+.booking-lookup > .button {
+  grid-column: 1/-1;
+  justify-self: end;
+}
+.booking-status {
+  padding: 28px;
+  margin-top: 25px;
+}
+.booking-status > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.booking-status h2 {
+  font-size: 27px;
+}
+.booking-status h3 {
+  font-size: 22px;
+  margin-top: 22px;
+}
+.booking-status > p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4c6d83;
+  margin-top: 15px;
+}
+.booking-manage-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  margin-top: 22px;
+}
+.booking-queue-token {
+  display: grid;
+  gap: 8px;
+  margin: 24px 0;
+  padding: 23px;
+  border-radius: 10px;
+  background: #edf4fb;
+}
+.booking-queue-token > span {
+  font-size: 12px;
+  color: #4f7089;
+}
+.booking-queue-token > strong {
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+.booking-queue-token p {
+  font-size: 13px;
+  color: #446b87;
+}
+.booking-notice {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 18px;
+  border: 1px solid #c4d9c9;
+  border-radius: 8px;
+  color: #386849;
+  background: #eff8f0;
+  margin-top: 20px;
+}
+.public-site .confirmation-actions {
+  flex-wrap: wrap;
+}
+@media (min-width: 1500px) {
+  .staff-workspace .workspace-content {
+    padding: 35px 40px;
+  }
+  .counter-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+  }
+}
+@media (max-width: 1250px) {
+  .queue-doctor-status {
+    grid-template-columns: 1fr;
+  }
+  .queue-doctor-status > .surface {
+    padding: 15px 18px;
+  }
+  .queue-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .queue-board > .surface:last-child {
+    grid-column: 1/-1;
+  }
+  .queue-board > .surface:last-child .queue-column-body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .counter-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .prescription-inbox {
+    max-height: 300px;
+    overflow: auto;
+  }
+  .counter-checkout {
+    gap: 20px;
+  }
+  .staff-workspace .patient-vitals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .audio-toggle > span {
+    display: none;
+  }
+  .staff-workspace .app-topbar {
+    padding-inline: 18px;
+  }
+  .staff-workspace .workspace-content {
+    padding: 24px 20px;
+  }
+  .staff-workspace .patient-record-header p {
+    line-height: 1.8;
+  }
+  .counter-header h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .staff-workspace .workspace-content {
+    padding: 23px 16px;
+  }
+  .staff-workspace .topbar-right {
+    gap: 5px;
+  }
+  .staff-workspace .staff-profile {
+    gap: 5px;
+  }
+  .staff-workspace .staff-profile strong {
+    max-width: 95px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+  .staff-workspace .profile-subtitle {
+    font-size: 9px;
+  }
+  .workspace-title {
+    font-size: 12px;
+  }
+  .staff-workspace .staff-avatar {
+    display: none;
+  }
+  .audio-toggle {
+    padding: 7px;
+  }
+  .staff-workspace .app-topbar {
+    padding-inline: 9px;
+    gap: 5px;
+  }
+  .header-messages {
+    width: 28px;
+    height: 28px;
+  }
+  .staff-logout {
+    width: 27px !important;
+  }
+  .staff-workspace .page-heading h1 {
+    font-size: 28px;
+  }
+  .staff-workspace .page-heading p {
+    font-size: 12px;
+  }
+  .staff-workspace .table-tabs {
+    gap: 17px;
+  }
+  .staff-workspace .table-tabs button {
+    font-size: 11px;
+  }
+  .staff-workspace .summary-strip span:last-child {
+    font-size: 10px;
+  }
+  .staff-workspace .heading-actions {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .queue-board {
+    grid-template-columns: 1fr;
+  }
+  .queue-board > .surface:last-child {
+    grid-column: auto;
+  }
+  .queue-board > .surface:last-child .queue-column-body {
+    grid-template-columns: 1fr;
+  }
+  .queue-doctor-status strong {
+    font-size: 13px;
+  }
+  .queue-doctor-status div > span {
+    font-size: 10px;
+  }
+  .queue-card .table-person strong {
+    font-size: 14px;
+  }
+  .queue-column-body {
+    padding: 13px;
+  }
+  .lobby-announcement {
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  .lobby-announcement p {
+    font-size: 18px;
+  }
+  .team-message-list {
+    padding: 14px;
+  }
+  .team-message {
+    padding: 16px;
+  }
+  .message-meta {
+    gap: 7px;
+  }
+  .message-meta time {
+    width: 100%;
+    margin-left: 0;
+  }
+  .team-message > p {
+    font-size: 14px;
+  }
+  .message-actions .button {
+    font-size: 11px;
+  }
+  .staff-workspace .doctor-picker {
+    max-width: 100%;
+  }
+  .staff-workspace .doctor-picker select {
+    max-width: calc(100vw - 70px);
+  }
+  .staff-workspace .queue-patient > div:last-child {
+    flex-wrap: wrap;
+  }
+  .staff-workspace .patient-record-header p {
+    font-size: 11px;
+  }
+  .staff-workspace .patient-vitals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .staff-workspace .patient-vitals strong {
+    font-size: 18px;
+  }
+  .staff-workspace .summary-strip strong {
+    font-size: 22px;
+  }
+  .counter-checkout {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .counter-customer {
+    padding: 17px;
+    gap: 13px;
+  }
+  .medicine-search {
+    padding: 0 17px 17px;
+  }
+  .medicine-search input {
+    font-size: 12px;
+  }
+  .counter-header {
+    padding: 17px;
+  }
+  .medicine-results {
+    left: 17px;
+    right: 17px;
+  }
+  .pharmacy-page-tabs button {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+  .pharmacy-page-tabs {
+    gap: 8px;
+  }
+  .staff-login-art h1 {
+    font-size: 35px;
+  }
+  .staff-login-form > .text-link {
+    font-size: 11px;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .public-header {
+    flex-wrap: wrap;
+  }
+  .public-header .brand {
+    margin-right: auto;
+  }
+  .public-header > .text-link {
+    font-size: 10px;
+  }
+  .booking-lookup {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .manage-booking {
+    padding: 35px 18px 60px;
+  }
+  .manage-booking > h1 {
+    font-size: 31px;
+  }
+  .booking-status {
+    padding: 21px;
+  }
+  .booking-status > div:first-child {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .booking-status > p {
+    line-height: 1.8;
+  }
+  .booking-status h2 {
+    font-size: 25px;
+  }
+  .booking-manage-actions .button {
+    font-size: 12px;
+  }
+  .public-site .booking-layout {
+    gap: 25px;
+  }
+  .public-site .booking-slots > label {
+    font-size: 11px;
+  }
+  .public-site .booking-consent {
+    font-size: 11px;
+  }
+  .public-site .booking-submit strong {
+    font-size: 26px;
+  }
+  .local-accounts td {
+    white-space: nowrap;
+  }
+  .message-compose {
+    gap: 16px;
+  }
+}
+@media print {
+  .invoice-document .invoice-print-totals {
+    break-inside: avoid;
+  }
+  .invoice-document .data-table td {
+    font-size: 11px;
+    padding: 11px;
+  }
+  .invoice-document .data-table th {
+    font-size: 10px;
+  }
+}

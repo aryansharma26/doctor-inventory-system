@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import "./hospital-workflow.css";
 import { AuthProvider } from "@/features/auth/auth-context";
 import { Toaster } from "sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const dmSans = localFont({
+  src: "../../public/fonts/dm-sans.woff2",
+  variable: "--font-dm-sans",
+  display: "swap",
+  weight: "100 1000",
 });
 
 export const metadata: Metadata = {
-  title: "MediStock · Clinic & OPD Management System",
+  title: "MediStock · A little more care",
   description:
-    "Minimalist healthcare SaaS for clinic operations, doctor consultation desk, smart OPD queues, and BIR-compliant billing.",
+    "Connected hospital care. Reception, consultations, pharmacy and online appointments in one thoughtful workspace.",
+  icons: { icon: "/hospital-mark.svg" },
 };
 
 export default function RootLayout({
@@ -26,11 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full bg-[#fbfbfb] text-[#09090b] font-sans">
+    <html lang="en-IN" className={`${dmSans.variable} h-full antialiased`}>
+      <body>
         <AuthProvider>
           {children}
           <Toaster position="top-right" richColors theme="light" />

@@ -1,10 +1,4 @@
-import { PlatformDashboard } from "@/features/platform/platform-dashboard";
-import { AppShell } from "@/components/layout/app-shell";
-
+import { redirect } from "next/navigation";
 export default function Page() {
-  return (
-    <AppShell>
-      <PlatformDashboard />
-    </AppShell>
-  );
+  redirect("/");
 }

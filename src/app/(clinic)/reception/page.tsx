@@ -1,5 +1,5 @@
-import { ReceptionDesk } from "@/features/practice/reception-desk";
+import { Reception } from "@/features/hospital/reception";
 
 export default function Page() {
-  return <ReceptionDesk />;
+  return <Reception />;
 }

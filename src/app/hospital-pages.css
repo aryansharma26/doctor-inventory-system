@@ -1,0 +1,962 @@
+.online-booking-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 23px 25px;
+  background: #eaf0f6;
+  border: 1px solid #e0e9f1;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.online-banner-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #d7e3ee;
+  background: #f3f7fb;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #7390aa;
+}
+.online-booking-banner strong {
+  font-size: 17px;
+  font-weight: 550;
+  letter-spacing: -0.5px;
+}
+.online-booking-banner p {
+  font-size: 10px;
+  color: #8ba0b3;
+  margin-top: 5px;
+}
+.online-booking-banner .button {
+  margin-left: auto;
+}
+.appointment-date-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+}
+.appointment-date-toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.appointment-date-toolbar > span {
+  color: #91a4b4;
+  font-size: 10px;
+}
+.appointment-date {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: #7b95ac;
+}
+.appointment-date input {
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  color: #5d7991;
+}
+.date-input {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 11px;
+  min-height: 39px;
+}
+.medicine-strength {
+  font-size: 9px;
+  font-weight: 400;
+  color: #96a8b7;
+  margin-left: 4px;
+}
+.stock-quantity-field {
+  margin-top: 22px;
+}
+.directory-count {
+  background: #edf2f7;
+  color: #7f97ab;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 5px;
+  margin-left: 5px;
+  vertical-align: middle;
+  letter-spacing: 0;
+}
+.directory-history {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+.directory-history .button {
+  margin-top: 13px;
+}
+.queue-display-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+}
+.queue-room {
+  padding: 30px 22px;
+  text-align: center;
+}
+.queue-room h2 {
+  font-size: 22px;
+  margin: 12px 0 6px;
+}
+.queue-room > p {
+  font-size: 11px;
+  color: #94a6b7;
+}
+.now-serving {
+  padding: 28px 15px;
+  background: #edf3f8;
+  border: 1px solid #e1eaf2;
+  border-radius: 11px;
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  margin: 30px 0;
+}
+.now-serving > span {
+  letter-spacing: 1.6px;
+  font-size: 9px;
+  color: #8ea5b9;
+}
+.now-serving strong {
+  font-size: 39px;
+  font-weight: 500;
+  color: #426a8c;
+  letter-spacing: -1px;
+}
+.now-serving small {
+  color: #93a9bb;
+  font-size: 9px;
+}
+.queue-room h3 {
+  font-size: 15px;
+  font-weight: 550;
+}
+.waiting-tokens {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+}
+.waiting-tokens > span {
+  background: #f5f7fa;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 12px;
+  color: #899fb2;
+}
+.queue-room .empty-state {
+  padding: 35px 0 10px;
+}
+.queue-room .empty-state h3 {
+  font-size: 16px;
+}
+.queue-room .empty-state p {
+  font-size: 10px;
+}
+.queue-privacy-note {
+  color: #9aaaba;
+  font-size: 10px;
+  text-align: center;
+  padding: 23px;
+}
+.public-site {
+  min-height: 100vh;
+  background: #fbfcfe;
+}
+.public-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1340px;
+  margin: auto;
+  padding: 28px 44px;
+  border-bottom: 1px solid #e8eef4;
+}
+.public-header > .brand {
+  gap: 10px;
+}
+.public-header > .brand > .brand-dot {
+  margin-left: -10px;
+}
+.public-hospital-name {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #8da0b1;
+}
+.public-header > .text-link {
+  font-size: 11px;
+  color: #63819d;
+}
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 65px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 65px 35px 90px;
+  align-items: start;
+}
+.booking-intro {
+  position: sticky;
+  top: 45px;
+}
+.booking-intro > .eyebrow {
+  font-size: 8px;
+  color: #7c98ac;
+  letter-spacing: 1.8px;
+}
+.booking-intro > h1 {
+  font-size: 76px;
+  line-height: 1.02;
+  letter-spacing: -4.5px;
+  font-weight: 550;
+  margin: 22px 0;
+}
+.booking-intro > h1 > span {
+  color: #7c9b8a;
+}
+.booking-intro > p {
+  font-size: 13px;
+  color: #8a9dad;
+  line-height: 1.85;
+}
+.booking-hospital-drawing {
+  width: 100%;
+  max-width: 440px;
+  display: block;
+  margin: 5px 0 0 -20px;
+}
+.booking-promises {
+  display: grid;
+  gap: 13px;
+  padding-bottom: 25px;
+}
+.booking-promises > span {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 11px;
+  color: #7893a8;
+}
+.booking-promises svg {
+  color: #8da999;
+}
+.hospital-location {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #e3ebf2;
+  padding-top: 24px;
+  color: #87a0b4;
+}
+.hospital-location strong {
+  display: block;
+  color: #657f97;
+  font-size: 12px;
+  font-weight: 550;
+}
+.hospital-location div > span {
+  color: #98aaba;
+  font-size: 10px;
+  margin-top: 4px;
+  display: block;
+}
+.booking-form-panel {
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e3eaf2;
+  border-radius: 18px;
+  box-shadow: 0 12px 60px #25486a06;
+}
+.booking-step {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 23px;
+}
+.booking-step:not(:first-child) {
+  border-top: 1px solid #edf1f5;
+  padding-top: 29px;
+  margin-top: 29px;
+}
+.booking-step > span {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 1px solid #dce7f1;
+  border-radius: 50%;
+  color: #8fa7bc;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.booking-step h2 {
+  font-size: 24px;
+  letter-spacing: -0.9px;
+  font-weight: 550;
+}
+.booking-step p {
+  color: #a0afbc;
+  font-size: 10px;
+  margin-top: 6px;
+}
+.doctor-options {
+  display: grid;
+  gap: 9px;
+}
+.doctor-option {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  border: 1px solid #e4ebf3;
+  border-radius: 10px;
+  padding: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.doctor-option:hover {
+  background: #f7fafd;
+}
+.doctor-option-selected {
+  border-color: #8da7be;
+  background: #f2f6fa;
+}
+.doctor-option > input {
+  accent-color: var(--accent);
+  width: 12px;
+  height: 12px;
+}
+.doctor-option > div {
+  flex: 1;
+}
+.doctor-option strong {
+  display: block;
+  font-size: 12px;
+  color: #56728b;
+  font-weight: 550;
+}
+.doctor-option > div > span {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  color: #97a9b9;
+}
+.doctor-option > span:not(.person-avatar) {
+  margin-left: auto;
+  font-size: 11px;
+  color: #6e8ca3;
+}
+.doctor-option > svg {
+  color: #668aa6;
+}
+.slot-fieldset {
+  padding: 0;
+  margin: 19px 0 0;
+  border: 0;
+}
+.slot-fieldset legend {
+  font-size: 11px;
+  color: #69849c;
+  margin-bottom: 12px;
+}
+.booking-slots {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+.booking-slots > label {
+  position: relative;
+  text-align: center;
+  font-size: 10px;
+  padding: 9px 5px;
+  border: 1px solid #e1e9f2;
+  color: #8b9fb1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.booking-slots > label:hover {
+  border-color: #95aec4;
+}
+.booking-slots .slot-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.booking-slots input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  cursor: pointer;
+  margin: 0;
+}
+.booking-slots label:has(input:focus-visible) {
+  outline: 2px solid #7397b7;
+  outline-offset: 2px;
+}
+.slots-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 25px 10px;
+  font-size: 11px;
+  color: #94a8ba;
+  text-align: center;
+  line-height: 1.8;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+.slots-message > .text-link {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+.booking-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 23px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: #99a9b7;
+}
+.booking-consent > input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+.booking-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 24px;
+  border-top: 1px solid #e6edf3;
+  margin-top: 24px;
+}
+.booking-submit > div > span {
+  font-size: 8px;
+  color: #9caebd;
+}
+.booking-submit strong {
+  display: block;
+  font-size: 26px;
+  font-weight: 550;
+  color: #4d6f8e;
+  letter-spacing: -0.8px;
+  margin-top: 3px;
+}
+.booking-submit strong small {
+  font-weight: 400;
+  font-size: 8px;
+  color: #99adbe;
+  letter-spacing: 0;
+  margin-left: 7px;
+}
+.booking-submit .button {
+  font-size: 10px;
+}
+.booking-privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 8px;
+  color: #a1b1be;
+  margin-top: 20px;
+}
+.booking-error {
+  border: 1px solid #eeded5;
+  background: #fcf2ed;
+  border-radius: 7px;
+  color: #a87964;
+  font-size: 11px;
+  padding: 12px;
+  margin-top: 20px;
+}
+.public-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e6ecf2;
+  max-width: 1250px;
+  margin: auto;
+  padding: 23px 35px;
+  color: #9daebb;
+  font-size: 10px;
+}
+.booking-confirmation {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 50px 25px 75px;
+  text-align: center;
+}
+.booking-confirmation > svg {
+  width: 190px;
+  margin-bottom: 18px;
+}
+.booking-confirmation > h1 {
+  font-size: 49px;
+  font-weight: 550;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin: 16px 0;
+}
+.booking-confirmation > p {
+  font-size: 12px;
+  color: #91a5b5;
+}
+.confirmation-card {
+  text-align: left;
+  background: #fff;
+  border: 1px solid #e1eaf1;
+  border-radius: 13px;
+  padding: 25px;
+  margin: 30px 0 20px;
+}
+.confirmation-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #7a9f88;
+  margin-bottom: 20px;
+}
+.confirmation-card h3 {
+  font-size: 23px;
+  color: #4c6a84;
+}
+.confirmation-card > p {
+  font-size: 12px;
+  color: #97a9b9;
+  line-height: 1.9;
+  margin: 12px 0 20px;
+}
+.confirmation-card > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-top: 1px solid #e9eff4;
+}
+.confirmation-card > div > span {
+  font-size: 10px;
+  color: #99adbc;
+}
+.confirmation-card > div > strong {
+  font-size: 11px;
+  font-weight: 550;
+  color: #61809a;
+}
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.booking-confirmation > .form-note {
+  margin-top: 22px;
+  font-size: 10px;
+}
+.staff-login {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  background: white;
+}
+.staff-login-art {
+  padding: 40px 65px;
+  background: #eaf0f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.staff-login-art > .brand {
+  margin-bottom: auto;
+  padding-bottom: 60px;
+}
+.staff-login-art > .eyebrow {
+  font-size: 9px;
+}
+.staff-login-art h1 {
+  margin: 20px 0;
+  font-size: 50px;
+  font-weight: 550;
+  letter-spacing: -2.5px;
+}
+.staff-login-art > p {
+  font-size: 13px;
+  color: #8ba0b1;
+  line-height: 1.8;
+}
+.staff-login-art > svg {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto 0;
+}
+.staff-login-main {
+  display: grid;
+  place-items: center;
+  padding: 50px;
+}
+.staff-login-form {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.login-lock {
+  display: grid;
+  place-items: center;
+  width: 47px;
+  height: 47px;
+  background: #eff4f9;
+  border: 1px solid #e1eaf2;
+  border-radius: 13px;
+  color: #7a98b2;
+  margin-bottom: 7px;
+}
+.staff-login-form h2 {
+  font-size: 32px;
+  font-weight: 550;
+  margin-top: -9px;
+}
+.staff-login-form > p {
+  color: #98aab9;
+  font-size: 12px;
+  margin-top: -7px;
+  margin-bottom: 10px;
+}
+.staff-login-form > .eyebrow {
+  font-size: 8px;
+}
+.staff-login-form > .button {
+  min-height: 43px;
+}
+.staff-login-form > .text-link {
+  margin: 5px auto 0;
+  font-size: 10px;
+}
+.login-demo-note {
+  background: #f0f5f9;
+  border: 1px solid #e1eaf2;
+  border-radius: 9px;
+  padding: 15px;
+  font-size: 11px;
+  color: #8ca2b4;
+  line-height: 1.8;
+}
+@media (max-width: 1100px) {
+  .booking-layout {
+    padding-inline: 30px;
+    gap: 35px;
+  }
+  .booking-intro > h1 {
+    font-size: 66px;
+    letter-spacing: -3.5px;
+  }
+  .booking-form-panel {
+    padding: 25px;
+  }
+  .booking-step h2 {
+    font-size: 22px;
+  }
+  .booking-slots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .booking-submit {
+    flex-wrap: wrap;
+  }
+  .booking-submit > .button {
+    width: 100%;
+  }
+  .staff-login-art {
+    padding: 35px;
+  }
+  .staff-login-art h1 {
+    font-size: 41px;
+  }
+  .queue-display-grid {
+    gap: 14px;
+  }
+  .queue-room {
+    padding: 24px 17px;
+  }
+  .queue-room h2 {
+    font-size: 18px;
+  }
+  .now-serving strong {
+    font-size: 30px;
+  }
+}
+@media (max-width: 850px) {
+  .public-header {
+    padding: 22px 25px;
+  }
+  .public-hospital-name {
+    display: none;
+  }
+  .booking-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    max-width: 630px;
+    padding: 40px 25px 65px;
+  }
+  .booking-intro {
+    position: relative;
+    top: auto;
+  }
+  .booking-intro > h1 {
+    font-size: 64px;
+    margin: 20px 0;
+  }
+  .booking-intro > h1 br:last-of-type {
+    display: none;
+  }
+  .booking-intro > h1 > span {
+    margin-left: 10px;
+  }
+  .booking-hospital-drawing {
+    position: absolute;
+    right: -15px;
+    bottom: 70px;
+    width: 45%;
+    opacity: 0.75;
+  }
+  .booking-intro > p {
+    max-width: 320px;
+    position: relative;
+  }
+  .booking-promises {
+    margin-top: 28px;
+    position: relative;
+  }
+  .booking-form-panel {
+    padding: 30px;
+  }
+  .booking-slots {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .booking-submit {
+    flex-wrap: nowrap;
+  }
+  .booking-submit > .button {
+    width: auto;
+  }
+  .queue-display-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .queue-room h2 {
+    font-size: 26px;
+  }
+  .now-serving strong {
+    font-size: 42px;
+  }
+  .online-booking-banner {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .online-booking-banner strong {
+    font-size: 16px;
+  }
+  .online-booking-banner .button {
+    margin-left: 62px;
+  }
+  .staff-login {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .staff-login-art {
+    padding: 30px;
+    min-height: 230px;
+  }
+  .staff-login-art > .brand {
+    margin: 0 0 35px;
+    padding-bottom: 0;
+  }
+  .staff-login-art > svg {
+    display: none;
+  }
+  .staff-login-art h1 {
+    font-size: 36px;
+    margin: 14px 0;
+  }
+  .staff-login-art > p {
+    font-size: 11px;
+  }
+  .staff-login-main {
+    padding: 45px 25px;
+  }
+  .staff-login-form {
+    max-width: 400px;
+  }
+}
+@media (max-width: 500px) {
+  .public-header {
+    padding: 18px 20px;
+  }
+  .public-header .brand {
+    font-size: 22px;
+  }
+  .public-header > .text-link {
+    font-size: 9px;
+  }
+  .public-header .brand-mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+  }
+  .booking-layout {
+    padding: 35px 18px 50px;
+    gap: 25px;
+  }
+  .booking-intro > .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1.2px;
+  }
+  .booking-intro > h1 {
+    font-size: 58px;
+    letter-spacing: -3px;
+  }
+  .booking-intro > p {
+    font-size: 11px;
+    max-width: 265px;
+  }
+  .booking-hospital-drawing {
+    width: 43%;
+    right: -12px;
+    bottom: 130px;
+    opacity: 0.55;
+  }
+  .booking-promises {
+    gap: 11px;
+  }
+  .booking-promises > span {
+    font-size: 9px;
+  }
+  .hospital-location > div > span {
+    font-size: 8px;
+  }
+  .booking-form-panel {
+    padding: 23px 18px;
+    border-radius: 13px;
+  }
+  .booking-step {
+    gap: 10px;
+  }
+  .booking-step h2 {
+    font-size: 23px;
+  }
+  .booking-step p {
+    font-size: 9px;
+  }
+  .doctor-option {
+    gap: 8px;
+    padding: 12px 9px;
+  }
+  .doctor-option strong {
+    font-size: 11px;
+  }
+  .doctor-option > div > span {
+    font-size: 8px;
+  }
+  .doctor-option > svg {
+    display: none;
+  }
+  .doctor-option > .person-avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+  }
+  .doctor-option > input {
+    margin-inline: 1px;
+  }
+  .booking-slots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .booking-submit {
+    flex-wrap: wrap;
+  }
+  .booking-submit > .button {
+    width: 100%;
+  }
+  .booking-privacy {
+    font-size: 7px;
+    gap: 5px;
+  }
+  .booking-consent {
+    font-size: 9px;
+  }
+  .public-footer {
+    padding: 20px;
+    font-size: 8px;
+    gap: 20px;
+  }
+  .booking-confirmation > h1 {
+    font-size: 39px;
+  }
+  .booking-confirmation > p {
+    font-size: 11px;
+  }
+  .confirmation-card {
+    padding: 20px;
+  }
+  .confirmation-actions {
+    flex-direction: column;
+  }
+  .confirmation-card > div {
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .appointment-date-toolbar {
+    padding: 15px 10px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .appointment-date-toolbar > div {
+    gap: 3px;
+  }
+  .appointment-date input {
+    font-size: 10px;
+  }
+  .appointment-date-toolbar > span {
+    margin-left: 10px;
+    font-size: 9px;
+  }
+  .online-booking-banner {
+    padding: 18px;
+  }
+  .online-banner-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 9px;
+  }
+  .online-booking-banner > div {
+    flex: 1;
+  }
+  .online-booking-banner strong {
+    font-size: 15px;
+  }
+  .online-booking-banner p {
+    font-size: 9px;
+  }
+  .online-booking-banner .button {
+    margin-left: 49px;
+  }
+  .staff-login-form h2 {
+    font-size: 30px;
+  }
+}

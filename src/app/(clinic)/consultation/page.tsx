@@ -1,5 +1,5 @@
-import { DoctorConsultationDesk } from "@/features/practice/doctor-consultation-desk";
+import { DoctorDesk } from "@/features/hospital/doctor";
 
 export default function Page() {
-  return <DoctorConsultationDesk />;
+  return <DoctorDesk />;
 }

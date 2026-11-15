@@ -1,5 +1,2 @@
-import { PosPage } from "@/features/operations/pos-page";
-
-export default function Page() {
-  return <PosPage />;
-}
+import { Billing } from "@/features/hospital/billing";
+export default function Page() { return <Billing />; }
