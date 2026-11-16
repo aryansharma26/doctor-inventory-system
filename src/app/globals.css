@@ -1,6 +1,129 @@
 @import "tailwindcss";
 @import "./hospital-pages.css";
 
+/* ===== MediStock design system tokens (new interfaces) ===== */
+/*
+ * MediStock design system tokens (Tailwind v4 @theme).
+ * Every new interface (/hospital, /doctor, /care, /admin) is built on these.
+ * Utilities are generated from the names: bg-brand-600, text-ink-muted,
+ * border-line, rounded-card, shadow-card, etc.
+ */
+@theme {
+  /* Primary: deep healthcare blue */
+  --color-brand-50: #f0f5fc;
+  --color-brand-100: #dde8f7;
+  --color-brand-200: #bfd3ef;
+  --color-brand-300: #93b5e2;
+  --color-brand-400: #5f8fd1;
+  --color-brand-500: #3a6fbf;
+  --color-brand-600: #2557a4;
+  --color-brand-700: #1d4686;
+  --color-brand-800: #1b3c6e;
+  --color-brand-900: #19335b;
+  --color-brand-950: #10213d;
+
+  /* Secondary: teal */
+  --color-teal-50: #effaf8;
+  --color-teal-100: #d3f1eb;
+  --color-teal-200: #a8e2d7;
+  --color-teal-500: #17a08b;
+  --color-teal-600: #108473;
+  --color-teal-700: #10695d;
+
+  /* Neutrals */
+  --color-canvas: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-subtle: #f9fafb;
+  --color-line: #e5e7eb;
+  --color-line-strong: #d4d8de;
+  --color-ink: #1b2230;
+  --color-ink-muted: #545e6e;
+  --color-ink-subtle: #8a93a2;
+
+  /* Status (reserved — always paired with an icon or label) */
+  --color-success-50: #ecf8f1;
+  --color-success-600: #23845a;
+  --color-success-700: #1b6a48;
+  --color-warning-50: #fdf5e6;
+  --color-warning-600: #b26b07;
+  --color-warning-700: #8f5506;
+  --color-danger-50: #fcefee;
+  --color-danger-600: #c0413a;
+  --color-danger-700: #9d332d;
+  --color-info-50: #eef4fd;
+  --color-info-600: #2c63c4;
+
+  /* Chart series (validated categorical order, first three slots) */
+  --color-series-1: #2a78d6;
+  --color-series-2: #eb6834;
+  --color-series-3: #1baf7a;
+
+  --radius-control: 8px;
+  --radius-card: 12px;
+  --radius-sheet: 16px;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.05);
+  --shadow-pop: 0 12px 32px -8px rgb(16 24 40 / 0.18), 0 2px 6px rgb(16 24 40 / 0.06);
+  --shadow-focus: 0 0 0 3px rgb(37 87 164 / 0.18);
+
+  --animate-fade-in: ds-fade-in 160ms ease-out;
+  --animate-pop-in: ds-pop-in 180ms cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  --animate-slide-in: ds-slide-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes ds-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes ds-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+}
+@keyframes ds-slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+/* Scope for the new interfaces: neutral body copy and tabular numbers in data. */
+.ds-root {
+  color: var(--color-ink);
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.ds-root h1,
+.ds-root h2,
+.ds-root h3 {
+  letter-spacing: -0.02em;
+}
+.ds-root .tnum {
+  font-variant-numeric: tabular-nums;
+}
+.ds-root :focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+.ds-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.ds-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+  border-radius: 8px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-root * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ===== end design system tokens ===== */
+
 :root {
   --paper: #f7f9fc;
   --white: #fff;
@@ -12,6 +135,8 @@
   --green: #4e8269;
   --font-sans: var(--font-dm-sans), Arial, sans-serif;
 }
+/* Element resets live in the base layer so Tailwind utilities (new UI) can override them. */
+@layer base {
 * {
   box-sizing: border-box;
 }
@@ -80,6 +205,7 @@ svg {
 ::selection {
   background: #dce9f7;
 }
+} /* end @layer base (legacy element resets) */
 .sr-only,
 .skip-link:not(:focus) {
   position: absolute;
