@@ -2,10 +2,14 @@ import { weekdayOf } from "@/design-system/format";
 import { DEMO_NOW, DEMO_TODAY } from "./catalog";
 import type { Appointment, Doctor } from "./types";
 
+/** The parts of a doctor and an appointment that slot maths needs. */
+export type SlotDoctor = Pick<Doctor, "id" | "weekly" | "slotMinutes">;
+export type BookedSlot = Pick<Appointment, "doctorId" | "date" | "start" | "status">;
+
 export type Slot = { start: number; end: number; taken: boolean; past: boolean };
 
 /** All slots a doctor offers on a date, marked taken / past. */
-export function slotsFor(doctor: Doctor, date: string, appointments: Appointment[]): Slot[] {
+export function slotsFor(doctor: SlotDoctor, date: string, appointments: BookedSlot[]): Slot[] {
   const sessions = doctor.weekly[weekdayOf(date)] ?? [];
   const booked = new Set(
     appointments
@@ -26,7 +30,7 @@ export function slotsFor(doctor: Doctor, date: string, appointments: Appointment
   return slots;
 }
 
-export function openSlots(doctor: Doctor, date: string, appointments: Appointment[]) {
+export function openSlots(doctor: SlotDoctor, date: string, appointments: BookedSlot[]) {
   return slotsFor(doctor, date, appointments).filter((s) => !s.taken && !s.past);
 }
 
@@ -38,7 +42,7 @@ export function nextToken(doctorId: string, date: string, appointments: Appointm
   );
 }
 
-export function worksOn(doctor: Doctor, date: string) {
+export function worksOn(doctor: Pick<Doctor, "weekly">, date: string) {
   return (doctor.weekly[weekdayOf(date)] ?? []).length > 0;
 }
 

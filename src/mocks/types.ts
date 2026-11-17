@@ -58,6 +58,9 @@ export type Session = { start: number; end: number };
 
 export type Doctor = {
   id: string;
+  /** Database ids: the doctor's User and their UserClinic membership. */
+  userId: string;
+  membershipId: string;
   name: string;
   gender: "male" | "female";
   hospitalId: string;

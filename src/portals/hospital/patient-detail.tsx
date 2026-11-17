@@ -318,6 +318,7 @@ export function PatientDetail({ id }: { id: string }) {
 function EditPatientDrawer({ patient, onClose }: { patient: Patient; onClose: () => void }) {
   const { updatePatient } = useWorkspace();
   const [draft, setDraft] = useState(patient);
+  const [saving, setSaving] = useState(false);
   const set = (k: keyof Patient) => (e: { target: { value: string } }) => setDraft((d) => ({ ...d, [k]: e.target.value }));
   return (
     <Drawer
@@ -331,9 +332,14 @@ function EditPatientDrawer({ patient, onClose }: { patient: Patient; onClose: ()
             Cancel
           </Button>
           <Button
+            loading={saving}
             onClick={() => {
-              updatePatient(draft);
-              onClose();
+              setSaving(true);
+              // On failure the store shows an error and the drawer stays open.
+              updatePatient(draft)
+                .then(onClose)
+                .catch(() => {})
+                .finally(() => setSaving(false));
             }}
           >
             Save changes

@@ -21,9 +21,9 @@ const WORKSPACES = [
   {
     href: "/care",
     title: "Patients",
-    body: "Find hospitals and doctors near you and book an appointment.",
+    body: "Book an appointment with a doctor and get a token number.",
     icon: HeartHandshake,
-    ready: false,
+    ready: true,
   },
   {
     href: "/admin",

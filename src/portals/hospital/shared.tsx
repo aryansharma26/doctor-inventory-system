@@ -195,28 +195,28 @@ export function RegisterPatientModal({
   function submit() {
     if (!validate()) return;
     setSubmitting(true);
-    setTimeout(() => {
-      const p = registerPatient({
-        name: form.name.trim(),
-        phone: form.phone.replace(/\D/g, ""),
-        gender: form.gender as Gender,
-        dob: form.dob,
-        bloodGroup: form.bloodGroup || "Unknown",
-        email: form.email || undefined,
-        address: form.address,
-        abhaId: form.abhaId || undefined,
-        allergies: form.allergies.split(",").map((a) => a.trim()).filter(Boolean),
-        conditions: [],
-        emergencyContact: form.emergencyName
-          ? { name: form.emergencyName, relation: form.emergencyRelation || "Relative", phone: form.emergencyPhone }
-          : undefined,
-      });
-      setSubmitting(false);
-      toast.success("Patient registered", { description: `${p.name} · ${p.uhid}` });
-      setForm({ ...EMPTY_FORM });
-      onRegistered?.(p);
-      onClose();
-    }, 300);
+    registerPatient({
+      name: form.name.trim(),
+      phone: form.phone.replace(/\D/g, ""),
+      gender: form.gender as Gender,
+      dob: form.dob,
+      bloodGroup: form.bloodGroup || "Unknown",
+      email: form.email || undefined,
+      address: form.address,
+      abhaId: form.abhaId || undefined,
+      allergies: form.allergies.split(",").map((a) => a.trim()).filter(Boolean),
+      emergencyContact: form.emergencyName
+        ? { name: form.emergencyName, relation: form.emergencyRelation || "Relative", phone: form.emergencyPhone }
+        : undefined,
+    })
+      .then((p) => {
+        toast.success("Patient registered", { description: `${p.name} · ${p.uhid}` });
+        setForm({ ...EMPTY_FORM });
+        onRegistered?.(p);
+        onClose();
+      })
+      .catch((e: unknown) => toast.error(e instanceof Error ? e.message : "Couldn't register the patient."))
+      .finally(() => setSubmitting(false));
   }
 
   return (
@@ -521,6 +521,7 @@ export function BookAppointmentModal({
   const [reason, setReason] = useState("");
   const [checkIn, setCheckIn] = useState(defaultCheckIn);
   const [done, setDone] = useState<{ token: number; doctor: Doctor; start: number; date: string } | null>(null);
+  const [saving, setSaving] = useState(false);
 
   const doctors = state.doctors.filter((d) => !dept || d.departmentId === dept);
   const doctor = state.doctors.find((d) => d.id === doctorId);
@@ -543,7 +544,8 @@ export function BookAppointmentModal({
 
   function submit() {
     if (!patient || !doctor || start === null) return;
-    const appt = book({
+    setSaving(true);
+    book({
       patientId: patient.id,
       doctorId: doctor.id,
       date,
@@ -552,8 +554,13 @@ export function BookAppointmentModal({
       channel,
       reason,
       checkInNow: checkIn && date === DEMO_TODAY,
-    });
-    setDone({ token: appt.token, doctor, start, date });
+    })
+      .then((appt) => setDone({ token: appt.token, doctor, start: appt.start, date: appt.date }))
+      .catch((e: unknown) => {
+        toast.error(e instanceof Error ? e.message : "Couldn't book the appointment.");
+        setStart(null);
+      })
+      .finally(() => setSaving(false));
   }
 
   const canSubmit = !!patient && !!doctor && start !== null;
@@ -603,7 +610,7 @@ export function BookAppointmentModal({
             <Button variant="secondary" onClick={close}>
               Cancel
             </Button>
-            <Button disabled={!canSubmit} onClick={submit} icon={<CalendarCheck className="size-4" />}>
+            <Button disabled={!canSubmit} loading={saving} onClick={submit} icon={<CalendarCheck className="size-4" />}>
               {checkIn && date === DEMO_TODAY ? "Book & check in" : "Book appointment"}
             </Button>
           </>

@@ -10,6 +10,8 @@ export const DEMO_NOW = 11 * 60 + 20;
 
 /** The hospital the Hospital and Doctor dashboards are signed in to. */
 export const CURRENT_HOSPITAL_ID = "h-aarogya";
+/** Database id of the same hospital (Clinic table). */
+export const CURRENT_CLINIC_UUID = "00000000-0000-4000-a000-000000000001";
 
 export const DEPARTMENTS: Department[] = [
   { id: "general-medicine", name: "General Medicine", short: "Gen. Med", description: "Fever, infections, diabetes, BP and everyday health concerns.", floor: "Ground floor, Wing A", headDoctorId: "d-arjun" },
@@ -62,21 +64,21 @@ const weekdays = (sessions: Session[], sat: Session[] = sessions): Session[][] =
 
 export const DOCTORS: Doctor[] = [
   {
-    id: "d-arjun", name: "Dr. Arjun Mehta", gender: "male", hospitalId: "h-aarogya", departmentId: "general-medicine",
+    id: "d-arjun", userId: "00000000-0000-4000-b000-000000000001", membershipId: "00000000-0000-4000-c000-000000000001", name: "Dr. Arjun Mehta", gender: "male", hospitalId: "h-aarogya", departmentId: "general-medicine",
     specialty: "Internal Medicine", qualifications: ["MBBS", "MD (General Medicine)"], experienceYears: 14, fee: 700, followUpFee: 400,
     languages: ["English", "Hindi", "Marathi"], rating: 4.8, reviews: 612, room: "OPD 104", registrationNo: "MMC 2011/04/1876",
     about: "Focuses on diabetes, thyroid disorders and preventive health checks.",
     weekly: weekdays([s(9, 30, 13, 30), s(17, 0, 20, 0)], [s(9, 30, 13, 30)]), slotMinutes: 15, status: "in-consultation", featured: true,
   },
   {
-    id: "d-meera", name: "Dr. Meera Iyer", gender: "female", hospitalId: "h-aarogya", departmentId: "cardiology",
+    id: "d-meera", userId: "00000000-0000-4000-b000-000000000002", membershipId: "00000000-0000-4000-c000-000000000002", name: "Dr. Meera Iyer", gender: "female", hospitalId: "h-aarogya", departmentId: "cardiology",
     specialty: "Cardiologist", qualifications: ["MBBS", "MD (Medicine)", "DM (Cardiology)"], experienceYears: 18, fee: 1200, followUpFee: 700,
     languages: ["English", "Hindi", "Tamil"], rating: 4.9, reviews: 488, room: "OPD 211", registrationNo: "MMC 2006/02/0931",
     about: "Specialises in coronary heart disease, heart failure and women's heart health.",
     weekly: weekdays([s(10, 0, 14, 0)], [s(10, 0, 13, 0)]), slotMinutes: 20, status: "available", featured: true,
   },
   {
-    id: "d-kavya", name: "Dr. Kavya Reddy", gender: "female", hospitalId: "h-aarogya", departmentId: "paediatrics",
+    id: "d-kavya", userId: "00000000-0000-4000-b000-000000000003", membershipId: "00000000-0000-4000-c000-000000000003", name: "Dr. Kavya Reddy", gender: "female", hospitalId: "h-aarogya", departmentId: "paediatrics",
     specialty: "Paediatrician", qualifications: ["MBBS", "MD (Paediatrics)"], experienceYears: 9, fee: 800, followUpFee: 400,
     languages: ["English", "Hindi", "Telugu"], rating: 4.9, reviews: 721, room: "OPD 122", registrationNo: "MMC 2015/01/3381",
     about: "Child development, vaccinations and newborn care.",

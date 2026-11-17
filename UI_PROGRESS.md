@@ -61,7 +61,28 @@ Shared `AppShell`, configured per interface:
 ### Phase 5: Doctor dashboard ⏳ next
 Today's schedule, new/upcoming/waiting/completed, patient info, consultation history, availability and leave, consultation workspace (history, notes, diagnosis, prescription, follow-up, complete).
 
-### Phase 6: Patient app ⏳
+### Phase 6a: Patient booking ✅
+| Page | Route | Status |
+|---|---|---|
+| Book an appointment | `/care` | ✅ Mobile-first, 4 steps: doctor (department filter, fee, next available) → date and time (off days and taken slots disabled) → details (mobile recognises returning patients) → review → confirmation with token, live status and patients ahead |
+
+How it reaches reception: bookings are saved in the database (Supabase Postgres via Prisma). Reception re-reads the workspace every 3 seconds, so an online booking from any device appears with a toast. Check-in and call-in are saved too, and the patient's status card polls its booking. Tokens are allocated per doctor per day inside a transaction with an advisory lock, and unique indexes reject double bookings.
+
+### Database (Supabase)
+- Connection: `.env` `DATABASE_URL` uses the **session pooler (port 5432)**, which was about 5x faster than the transaction pooler here. `MIGRATION_DATABASE_URL` is used for migrations.
+- Schema: the repo's Prisma schema (6 migrations) plus `20261117090000_opd_booking_tokens` (token number, token date, channel, fee, paid, one-active-booking-per-slot index) and `20261117091000_patient_abha_id`.
+- Fixed an existing bug in `20260725143000_merge_clinic_admin_into_owner` (it used `CLINIC_OWNERS` before that enum value existed, so it could never apply).
+- Seed: `npm run db:seed:opd` (1 hospital, 3 doctors, front-desk users, 7 patients, 14 appointments). Safe to re-run.
+- API: `src/app/api/opd/*`. Data access: `src/server/opd/repository.ts`. Client calls: `src/services/mock-api.ts`.
+- Still mock: doctor profiles and schedules (`src/mocks/catalog.ts`), consultation notes, staff list, activity feed. The clock is still the fixed demo day.
+
+Open before real patient data:
+- Staff API routes have **no login check** yet (marked `TODO(auth)`).
+- The app connects as `postgres`, which bypasses row-level security. Production should use the restricted role in `prisma/runtime-role.sql`.
+- Returning-patient lookup by mobile should be gated behind an SMS OTP.
+- Supabase Data API exposure: 14 public tables have RLS off (see Supabase security advisor).
+
+### Phase 6b: Rest of patient app ⏳
 Mobile-first landing page, hospital and doctor discovery, multi-step booking (hospital → department → doctor → date → time → details → review → confirmation with token), patient dashboard.
 
 ### Phase 7: Super admin ⏳

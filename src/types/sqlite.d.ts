@@ -3,8 +3,9 @@ declare module "node:sqlite" {
     constructor(path: string);
     exec(sql: string): void;
     prepare(sql: string): {
-      get(...params: (string | number)[]): unknown;
-      run(...params: (string | number)[]): unknown;
+      get(...params: (string | number | null)[]): unknown;
+      run(...params: (string | number | null)[]): unknown;
+      all(...params: (string | number | null)[]): unknown[];
     };
   }
 }

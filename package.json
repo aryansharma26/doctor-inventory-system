@@ -10,7 +10,9 @@
     "test": "playwright test",
     "test:production": "node scripts/production-smoke.mjs",
     "typecheck": "tsc --noEmit",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed:opd": "esbuild prisma/seed-opd.ts --bundle --platform=node --format=esm --packages=external --log-level=warning --outfile=node_modules/.cache/seed-opd.mjs && node --env-file=.env node_modules/.cache/seed-opd.mjs"
   },
   "engines": { "node": ">=22.13.0" },
   "dependencies": {

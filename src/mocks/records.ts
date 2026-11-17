@@ -13,7 +13,7 @@ import type { ActivityItem, Appointment, Consultation, Patient, StaffMember } fr
 
 export const PATIENTS: Patient[] = [
   {
-    id: "p-1001",
+    id: "00000000-0000-4000-8000-000000001001",
     uhid: "AMH-240101",
     name: "Sneha Patil",
     gender: "Female",
@@ -31,7 +31,7 @@ export const PATIENTS: Patient[] = [
     tags: ["Insurance"],
   },
   {
-    id: "p-1002",
+    id: "00000000-0000-4000-8000-000000001002",
     uhid: "AMH-240102",
     name: "Rajesh Kulkarni",
     gender: "Male",
@@ -47,7 +47,7 @@ export const PATIENTS: Patient[] = [
     tags: ["Chronic care", "Senior citizen"],
   },
   {
-    id: "p-1003",
+    id: "00000000-0000-4000-8000-000000001003",
     uhid: "AMH-240103",
     name: "Aarav Sharma",
     gender: "Male",
@@ -64,7 +64,7 @@ export const PATIENTS: Patient[] = [
     tags: [],
   },
   {
-    id: "p-1004",
+    id: "00000000-0000-4000-8000-000000001004",
     uhid: "AMH-240104",
     name: "Priya Deshmukh",
     gender: "Female",
@@ -81,7 +81,7 @@ export const PATIENTS: Patient[] = [
     tags: ["New"],
   },
   {
-    id: "p-1005",
+    id: "00000000-0000-4000-8000-000000001005",
     uhid: "AMH-240105",
     name: "Amit Joshi",
     gender: "Male",
@@ -98,7 +98,7 @@ export const PATIENTS: Patient[] = [
     tags: ["Insurance"],
   },
   {
-    id: "p-1006",
+    id: "00000000-0000-4000-8000-000000001006",
     uhid: "AMH-240106",
     name: "Ishaan Nair",
     gender: "Male",
@@ -115,7 +115,7 @@ export const PATIENTS: Patient[] = [
     tags: [],
   },
   {
-    id: "p-1007",
+    id: "00000000-0000-4000-8000-000000001007",
     uhid: "AMH-240107",
     name: "Kavita Shinde",
     gender: "Female",
@@ -139,39 +139,39 @@ const t = (h: number, m: number) => h * 60 + m;
 
 export const APPOINTMENTS: Appointment[] = [
   // Past visits
-  { id: "a-1", token: 4, patientId: "p-1002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-09-14", start: t(10, 30), duration: 15, visitType: "new", channel: "walk-in", status: "completed", reason: "Diabetes review", checkedInAt: t(10, 15), startedAt: t(10, 32), completedAt: t(10, 46), fee: 700, paid: true, vitals: { bp: "146/92", pulse: 82, tempF: 98.2, spo2: 97, weightKg: 81 } },
-  { id: "a-2", token: 6, patientId: "p-1002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-10-16", start: t(11, 0), duration: 15, visitType: "follow-up", channel: "phone", status: "completed", reason: "BP follow-up", checkedInAt: t(10, 48), startedAt: t(11, 2), completedAt: t(11, 15), fee: 400, paid: true, vitals: { bp: "138/88", pulse: 78, tempF: 98.1, spo2: 98, weightKg: 80 } },
-  { id: "a-3", token: 3, patientId: "p-1002", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-10-26", start: t(10, 40), duration: 20, visitType: "new", channel: "online", status: "completed", reason: "ECG review", checkedInAt: t(10, 25), startedAt: t(10, 42), completedAt: t(11, 0), fee: 1200, paid: true },
-  { id: "a-4", token: 2, patientId: "p-1001", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-02", start: t(9, 45), duration: 15, visitType: "new", channel: "online", status: "completed", reason: "Fever for 3 days", checkedInAt: t(9, 35), startedAt: t(9, 47), completedAt: t(10, 0), fee: 700, paid: true, vitals: { bp: "112/74", pulse: 92, tempF: 100.6, spo2: 98, weightKg: 58 } },
-  { id: "a-5", token: 5, patientId: "p-1003", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-10-12", start: t(17, 0), duration: 15, visitType: "new", channel: "online", status: "completed", reason: "Cough at night", checkedInAt: t(16, 50), startedAt: t(17, 1), completedAt: t(17, 14), fee: 800, paid: true, vitals: { bp: "-", pulse: 104, tempF: 99.1, spo2: 98, weightKg: 18 } },
+  { id: "00000000-0000-4000-9000-000000000001", token: 4, patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-09-14", start: t(10, 30), duration: 15, visitType: "new", channel: "walk-in", status: "completed", reason: "Diabetes review", checkedInAt: t(10, 15), startedAt: t(10, 32), completedAt: t(10, 46), fee: 700, paid: true, vitals: { bp: "146/92", pulse: 82, tempF: 98.2, spo2: 97, weightKg: 81 } },
+  { id: "00000000-0000-4000-9000-000000000002", token: 6, patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-10-16", start: t(11, 0), duration: 15, visitType: "follow-up", channel: "phone", status: "completed", reason: "BP follow-up", checkedInAt: t(10, 48), startedAt: t(11, 2), completedAt: t(11, 15), fee: 400, paid: true, vitals: { bp: "138/88", pulse: 78, tempF: 98.1, spo2: 98, weightKg: 80 } },
+  { id: "00000000-0000-4000-9000-000000000003", token: 3, patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-10-26", start: t(10, 40), duration: 20, visitType: "new", channel: "online", status: "completed", reason: "ECG review", checkedInAt: t(10, 25), startedAt: t(10, 42), completedAt: t(11, 0), fee: 1200, paid: true },
+  { id: "00000000-0000-4000-9000-000000000004", token: 2, patientId: "00000000-0000-4000-8000-000000001001", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-02", start: t(9, 45), duration: 15, visitType: "new", channel: "online", status: "completed", reason: "Fever for 3 days", checkedInAt: t(9, 35), startedAt: t(9, 47), completedAt: t(10, 0), fee: 700, paid: true, vitals: { bp: "112/74", pulse: 92, tempF: 100.6, spo2: 98, weightKg: 58 } },
+  { id: "00000000-0000-4000-9000-000000000005", token: 5, patientId: "00000000-0000-4000-8000-000000001003", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-10-12", start: t(17, 0), duration: 15, visitType: "new", channel: "online", status: "completed", reason: "Cough at night", checkedInAt: t(16, 50), startedAt: t(17, 1), completedAt: t(17, 14), fee: 800, paid: true, vitals: { bp: "-", pulse: 104, tempF: 99.1, spo2: 98, weightKg: 18 } },
 
-  { id: "a-14", token: 3, patientId: "p-1007", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-10-20", start: t(10, 0), duration: 15, visitType: "new", channel: "walk-in", status: "completed", reason: "Knee pain", checkedInAt: t(9, 50), startedAt: t(10, 1), completedAt: t(10, 15), fee: 700, paid: true, vitals: { bp: "150/94", pulse: 80, tempF: 98.0, spo2: 97, weightKg: 68 } },
+  { id: "00000000-0000-4000-9000-000000000014", token: 3, patientId: "00000000-0000-4000-8000-000000001007", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-10-20", start: t(10, 0), duration: 15, visitType: "new", channel: "walk-in", status: "completed", reason: "Knee pain", checkedInAt: t(9, 50), startedAt: t(10, 1), completedAt: t(10, 15), fee: 700, paid: true, vitals: { bp: "150/94", pulse: 80, tempF: 98.0, spo2: 97, weightKg: 68 } },
 
   // Today
-  { id: "a-6", token: 1, patientId: "p-1002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-16", start: t(11, 0), duration: 15, visitType: "follow-up", channel: "walk-in", status: "in-consultation", reason: "Diabetes and BP review", checkedInAt: t(10, 45), startedAt: t(11, 5), fee: 400, paid: true, vitals: { bp: "134/86", pulse: 76, tempF: 98.0, spo2: 98, weightKg: 79 } },
-  { id: "a-7", token: 2, patientId: "p-1001", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-11-16", start: t(11, 20), duration: 20, visitType: "new", channel: "online", status: "waiting", reason: "Palpitations", checkedInAt: t(11, 5), fee: 1200, paid: false, vitals: { bp: "118/76", pulse: 96, tempF: 98.4, spo2: 99, weightKg: 58 } },
-  { id: "a-8", token: 2, patientId: "p-1003", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-11-16", start: t(17, 15), duration: 15, visitType: "new", channel: "online", status: "scheduled", reason: "Vaccination, 5 years", fee: 800, paid: true },
+  { id: "00000000-0000-4000-9000-000000000006", token: 1, patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-16", start: t(11, 0), duration: 15, visitType: "follow-up", channel: "walk-in", status: "in-consultation", reason: "Diabetes and BP review", checkedInAt: t(10, 45), startedAt: t(11, 5), fee: 400, paid: true, vitals: { bp: "134/86", pulse: 76, tempF: 98.0, spo2: 98, weightKg: 79 } },
+  { id: "00000000-0000-4000-9000-000000000007", token: 2, patientId: "00000000-0000-4000-8000-000000001001", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-11-16", start: t(11, 20), duration: 20, visitType: "new", channel: "online", status: "waiting", reason: "Palpitations", checkedInAt: t(11, 5), fee: 1200, paid: false, vitals: { bp: "118/76", pulse: 96, tempF: 98.4, spo2: 99, weightKg: 58 } },
+  { id: "00000000-0000-4000-9000-000000000008", token: 2, patientId: "00000000-0000-4000-8000-000000001003", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-11-16", start: t(17, 15), duration: 15, visitType: "new", channel: "online", status: "scheduled", reason: "Vaccination, 5 years", fee: 800, paid: true },
 
-  { id: "a-10", token: 2, patientId: "p-1004", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-16", start: t(11, 30), duration: 15, visitType: "new", channel: "walk-in", status: "waiting", reason: "Tiredness and weight gain", checkedInAt: t(11, 12), fee: 700, paid: false },
-  { id: "a-11", token: 1, patientId: "p-1005", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-11-16", start: t(10, 0), duration: 20, visitType: "follow-up", channel: "online", status: "completed", reason: "Cholesterol review", checkedInAt: t(9, 50), startedAt: t(10, 2), completedAt: t(10, 20), fee: 700, paid: true, vitals: { bp: "128/84", pulse: 74, tempF: 98.2, spo2: 98, weightKg: 84 } },
-  { id: "a-12", token: 1, patientId: "p-1006", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-11-16", start: t(10, 15), duration: 15, visitType: "follow-up", channel: "phone", status: "completed", reason: "Wheezing at night", checkedInAt: t(10, 5), startedAt: t(10, 16), completedAt: t(10, 30), fee: 400, paid: true, vitals: { bp: "-", pulse: 98, tempF: 98.6, spo2: 97, weightKg: 24 } },
+  { id: "00000000-0000-4000-9000-000000000010", token: 2, patientId: "00000000-0000-4000-8000-000000001004", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-16", start: t(11, 30), duration: 15, visitType: "new", channel: "walk-in", status: "waiting", reason: "Tiredness and weight gain", checkedInAt: t(11, 12), fee: 700, paid: false },
+  { id: "00000000-0000-4000-9000-000000000011", token: 1, patientId: "00000000-0000-4000-8000-000000001005", doctorId: "d-meera", departmentId: "cardiology", hospitalId: H, date: "2026-11-16", start: t(10, 0), duration: 20, visitType: "follow-up", channel: "online", status: "completed", reason: "Cholesterol review", checkedInAt: t(9, 50), startedAt: t(10, 2), completedAt: t(10, 20), fee: 700, paid: true, vitals: { bp: "128/84", pulse: 74, tempF: 98.2, spo2: 98, weightKg: 84 } },
+  { id: "00000000-0000-4000-9000-000000000012", token: 1, patientId: "00000000-0000-4000-8000-000000001006", doctorId: "d-kavya", departmentId: "paediatrics", hospitalId: H, date: "2026-11-16", start: t(10, 15), duration: 15, visitType: "follow-up", channel: "phone", status: "completed", reason: "Wheezing at night", checkedInAt: t(10, 5), startedAt: t(10, 16), completedAt: t(10, 30), fee: 400, paid: true, vitals: { bp: "-", pulse: 98, tempF: 98.6, spo2: 97, weightKg: 24 } },
 
   // Upcoming
-  { id: "a-13", token: 1, patientId: "p-1007", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-17", start: t(9, 45), duration: 15, visitType: "follow-up", channel: "phone", status: "scheduled", reason: "Knee pain and BP check", fee: 400, paid: false },
-  { id: "a-9", token: 1, patientId: "p-1002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-30", start: t(10, 0), duration: 15, visitType: "follow-up", channel: "phone", status: "scheduled", reason: "Sugar report review", fee: 400, paid: false },
+  { id: "00000000-0000-4000-9000-000000000013", token: 1, patientId: "00000000-0000-4000-8000-000000001007", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-17", start: t(9, 45), duration: 15, visitType: "follow-up", channel: "phone", status: "scheduled", reason: "Knee pain and BP check", fee: 400, paid: false },
+  { id: "00000000-0000-4000-9000-000000000009", token: 1, patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", departmentId: "general-medicine", hospitalId: H, date: "2026-11-30", start: t(10, 0), duration: 15, visitType: "follow-up", channel: "phone", status: "scheduled", reason: "Sugar report review", fee: 400, paid: false },
 ];
 
 /* ----------------------------------------------------------- Consultations */
 
 export const CONSULTATIONS: Consultation[] = [
   {
-    id: "c-a-1", patientId: "p-1002", doctorId: "d-arjun", date: "2026-09-14", complaint: "Diabetes review",
+    id: "c-a-1", patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", date: "2026-09-14", complaint: "Diabetes review",
     diagnosis: "Type 2 diabetes mellitus, poorly controlled", notes: "HbA1c 8.4%. Diet counselling given. Walk 30 minutes daily.",
     prescriptions: [{ medicine: "Metformin 500 mg", dosage: "1 tablet", frequency: "Twice daily after food", duration: "30 days" }],
     followUp: "2026-10-16",
   },
   {
-    id: "c-a-2", patientId: "p-1002", doctorId: "d-arjun", date: "2026-10-16", complaint: "BP follow-up",
+    id: "c-a-2", patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-arjun", date: "2026-10-16", complaint: "BP follow-up",
     diagnosis: "Essential hypertension", notes: "BP better. Continue medicines. Reduce salt.",
     prescriptions: [
       { medicine: "Metformin 500 mg", dosage: "1 tablet", frequency: "Twice daily after food", duration: "30 days" },
@@ -180,22 +180,22 @@ export const CONSULTATIONS: Consultation[] = [
     followUp: "2026-11-16",
   },
   {
-    id: "c-a-3", patientId: "p-1002", doctorId: "d-meera", date: "2026-10-26", complaint: "ECG review",
+    id: "c-a-3", patientId: "00000000-0000-4000-8000-000000001002", doctorId: "d-meera", date: "2026-10-26", complaint: "ECG review",
     diagnosis: "Normal ECG, mild hypertensive heart changes", notes: "Echo advised in 6 months.",
     prescriptions: [{ medicine: "Telmisartan 40 mg", dosage: "1 tablet", frequency: "Once daily morning", duration: "30 days" }],
   },
   {
-    id: "c-a-4", patientId: "p-1001", doctorId: "d-arjun", date: "2026-11-02", complaint: "Fever for 3 days",
+    id: "c-a-4", patientId: "00000000-0000-4000-8000-000000001001", doctorId: "d-arjun", date: "2026-11-02", complaint: "Fever for 3 days",
     diagnosis: "Viral fever", notes: "Plenty of fluids and rest. Return if fever lasts beyond 5 days.",
     prescriptions: [{ medicine: "Paracetamol 650 mg", dosage: "1 tablet", frequency: "Thrice daily after food", duration: "3 days" }],
   },
   {
-    id: "c-a-5", patientId: "p-1003", doctorId: "d-kavya", date: "2026-10-12", complaint: "Cough at night",
+    id: "c-a-5", patientId: "00000000-0000-4000-8000-000000001003", doctorId: "d-kavya", date: "2026-10-12", complaint: "Cough at night",
     diagnosis: "Viral upper respiratory infection", notes: "Steam inhalation. Honey with warm water.",
     prescriptions: [{ medicine: "Cetirizine syrup 5 ml", dosage: "2.5 ml", frequency: "Once daily at night", duration: "5 days" }],
   },
   {
-    id: "c-a-14", patientId: "p-1007", doctorId: "d-arjun", date: "2026-10-20", complaint: "Knee pain",
+    id: "c-a-14", patientId: "00000000-0000-4000-8000-000000001007", doctorId: "d-arjun", date: "2026-10-20", complaint: "Knee pain",
     diagnosis: "Osteoarthritis of both knees", notes: "Knee strengthening exercises. Avoid squatting.",
     prescriptions: [
       { medicine: "Aceclofenac 100 mg", dosage: "1 tablet", frequency: "Twice daily after food", duration: "5 days" },
@@ -204,13 +204,13 @@ export const CONSULTATIONS: Consultation[] = [
     followUp: "2026-11-17",
   },
   {
-    id: "c-a-11", patientId: "p-1005", doctorId: "d-meera", date: "2026-11-16", complaint: "Cholesterol review",
+    id: "c-a-11", patientId: "00000000-0000-4000-8000-000000001005", doctorId: "d-meera", date: "2026-11-16", complaint: "Cholesterol review",
     diagnosis: "Dyslipidaemia, improving", notes: "LDL down from 168 to 132. Continue statin, recheck lipids in 3 months.",
     prescriptions: [{ medicine: "Atorvastatin 20 mg", dosage: "1 tablet", frequency: "Once daily at night", duration: "90 days" }],
     followUp: "2027-02-15",
   },
   {
-    id: "c-a-12", patientId: "p-1006", doctorId: "d-kavya", date: "2026-11-16", complaint: "Wheezing at night",
+    id: "c-a-12", patientId: "00000000-0000-4000-8000-000000001006", doctorId: "d-kavya", date: "2026-11-16", complaint: "Wheezing at night",
     diagnosis: "Mild intermittent asthma", notes: "Inhaler technique shown to mother. Avoid dust and smoke.",
     prescriptions: [{ medicine: "Salbutamol inhaler 100 mcg", dosage: "2 puffs", frequency: "When needed", duration: "30 days" }],
     followUp: "2026-12-14",
