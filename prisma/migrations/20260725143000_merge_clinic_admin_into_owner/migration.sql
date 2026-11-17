@@ -33,10 +33,8 @@ ALTER TABLE "RolePermission"
 
 DROP TYPE "Role_legacy";
 
-UPDATE "Announcement"
-SET "audience" = 'CLINIC_OWNERS'
-WHERE "audience" = 'CLINIC_ADMINS';
-
+-- 'CLINIC_OWNERS' does not exist in the legacy enum, so the old value is
+-- mapped during the type change instead of by an UPDATE beforehand.
 ALTER TYPE "AnnouncementAudience" RENAME TO "AnnouncementAudience_legacy";
 
 CREATE TYPE "AnnouncementAudience" AS ENUM (
@@ -47,6 +45,11 @@ CREATE TYPE "AnnouncementAudience" AS ENUM (
 
 ALTER TABLE "Announcement"
   ALTER COLUMN "audience" TYPE "AnnouncementAudience"
-  USING ("audience"::text::"AnnouncementAudience");
+  USING (
+    CASE "audience"::text
+      WHEN 'CLINIC_ADMINS' THEN 'CLINIC_OWNERS'
+      ELSE "audience"::text
+    END
+  )::"AnnouncementAudience";
 
 DROP TYPE "AnnouncementAudience_legacy";
